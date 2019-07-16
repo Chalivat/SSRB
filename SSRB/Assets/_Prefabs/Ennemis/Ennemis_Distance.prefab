@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4232180791290373334}
-  ejection: 5
+  ejection: 1
   initialTime: 7
 --- !u!65 &401039062605041378
 BoxCollider:

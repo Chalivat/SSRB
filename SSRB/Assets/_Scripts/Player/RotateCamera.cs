@@ -19,5 +19,6 @@ public class RotateCamera : MonoBehaviour
         float y = rotateSpeed * Input.GetAxis("Horizontal") * Time.deltaTime;
         transform.Rotate(-x, 0, 0);
         transform.Rotate(0, y, 0, Space.World);
+        
     }
 }

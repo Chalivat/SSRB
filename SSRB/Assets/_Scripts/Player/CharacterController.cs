@@ -33,7 +33,6 @@ public class CharacterController : MonoBehaviour
         newRot = Quaternion.Euler(nextRot);
 
         direction = newRot * direction;
-        Debug.Log(direction.magnitude);
         if (direction.magnitude >= 1f)
         {
             rb.velocity = direction * speed;
@@ -48,7 +47,9 @@ public class CharacterController : MonoBehaviour
         nextRot.z = 0;
         newRot = Quaternion.Euler(nextRot);
 
-       
+        if (rb.velocity.magnitude >= .2f)
+        {
         transform.rotation = Quaternion.Lerp(transform.rotation,newRot,0.5f);
+        }
     }
 }

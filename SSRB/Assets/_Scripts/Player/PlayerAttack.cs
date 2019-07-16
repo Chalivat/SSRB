@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour
     private float chargingHit;
     public ParticleSystem ShieldParticles;
     public GameObject Tornado;
+
+    public static bool canDeflect;
     void Start()
     {
         ShieldParticles.Stop();
@@ -47,6 +49,8 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    private float deflectTime;
+    public float maxDeflectTime;
     void shieldUp()
     {
         if (Input.GetButtonDown("Shield"))
@@ -64,6 +68,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonUp("Shield"))
         {
+            canDeflect = true;
             animShield.Play("shieldUp");
             if (chargingShield >= 2)
             {
@@ -71,5 +76,18 @@ public class PlayerAttack : MonoBehaviour
             }
             chargingShield = 0;
         }
+
+        if (canDeflect)
+        {
+            deflectTime += Time.deltaTime;
+            if (deflectTime >= maxDeflectTime)
+            {
+                deflectTime = 0;
+                canDeflect = false;
+            }
+        }
     }
+
+    
+
 }

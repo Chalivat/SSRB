@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8966430905872128559}
   - component: {fileID: 8966430905872128556}
   - component: {fileID: 8966430905872128557}
+  - component: {fileID: 8217800043345045168}
   m_Layer: 0
   m_Name: TornadeV0.1
   m_TagString: Tornade
@@ -4775,3 +4776,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.446106, y: 5.836994, z: 3.1181703}
   m_Center: {x: -0.042160988, y: 2.223052, z: -0.10266209}
+--- !u!114 &8217800043345045168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966430905872128554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7087cebdffdda9439c96976b835f74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

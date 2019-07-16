@@ -5,18 +5,23 @@ using UnityEngine.Animations;
 
 public class EnnemiEpee : MonoBehaviour
 {
+    Rigidbody rb;
     GameObject player;
-    public float speed;
+    public float speedMin;
+    public float speedMax;
     public float time;
     public float distanceMin;
     Vector3 direction;
     public Animator anim;
 
     bool isReach = false;
+    float speed;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody>();
+        speed = Random.Range(speedMin, speedMax);
     }
     
     void Update()
@@ -28,12 +33,12 @@ public class EnnemiEpee : MonoBehaviour
     {
         if (!isReach)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             direction = player.transform.position - transform.position;
             Quaternion newRot = Quaternion.LookRotation(direction);
             Vector3 nextRot = newRot.eulerAngles;
             nextRot.x = 0;
             transform.rotation = Quaternion.Euler(nextRot);
+            rb.velocity = direction.normalized *speed * Time.deltaTime;
         }
 
         time += Time.deltaTime;

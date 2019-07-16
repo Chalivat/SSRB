@@ -33,6 +33,7 @@ public class EnnemiEpee : MonoBehaviour
         if (asBeenDeflected)
         {
             anim.Play("Sword", -2);
+            asBeenDeflected = false;
         }
     }
 

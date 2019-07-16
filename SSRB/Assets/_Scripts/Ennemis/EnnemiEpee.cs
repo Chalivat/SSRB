@@ -14,6 +14,7 @@ public class EnnemiEpee : MonoBehaviour
     public float ejection;
     Vector3 direction;
     public Animator anim;
+    public bool asBeenDeflected = false;
 
     bool isReach = false;
     float speed;
@@ -28,6 +29,11 @@ public class EnnemiEpee : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (asBeenDeflected)
+        {
+            anim.Play("Sword", -2);
+        }
     }
 
     private void Move()
@@ -59,7 +65,7 @@ public class EnnemiEpee : MonoBehaviour
                 }
                 else
                 {
-                    if(time <=3)
+                    if(time <=3 && !asBeenDeflected)
                     {
                         anim.Play("Sword");
                     }
@@ -79,5 +85,7 @@ public class EnnemiEpee : MonoBehaviour
         {
             rb.AddForce(Vector3.up * ejection, ForceMode.Impulse);
         }
+
+        
     }
 }

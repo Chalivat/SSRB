@@ -52,6 +52,8 @@ MonoBehaviour:
   distanceMin: 2
   ejection: 50
   anim: {fileID: 7712825268736599885}
+  isDeflected: 0
+  asBeenDeflected: 0
 --- !u!54 &2485397278574277967
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,8 +81,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5763454, z: 1.6615024}
-  m_Center: {x: 0, y: 0.783504, z: 0.33075118}
+  m_Size: {x: 1.1551225, y: 1.5763454, z: 1.6615024}
+  m_Center: {x: 0.07756138, y: 0.783504, z: 0.33075118}
 --- !u!1 &4681987387220397565
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +94,9 @@ GameObject:
   - component: {fileID: 4681987387220397564}
   - component: {fileID: 4681987387220397561}
   - component: {fileID: 4681987387220397566}
+  - component: {fileID: 4609923984222718624}
   - component: {fileID: 4681987387220397567}
+  - component: {fileID: 2707075581228468011}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -159,6 +163,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &4609923984222718624
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681987387220397565}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &4681987387220397567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -167,11 +187,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4681987387220397565}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2707075581228468011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681987387220397565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f187b3fc3716a5e45baa9490c215e987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epee: {fileID: 0}
 --- !u!1001 &4681987385745908013
 PrefabInstance:
   m_ObjectHideFlags: 0

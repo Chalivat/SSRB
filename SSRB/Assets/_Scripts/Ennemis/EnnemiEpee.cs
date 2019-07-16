@@ -36,10 +36,6 @@ public class EnnemiEpee : MonoBehaviour
             anim.speed = -2;
             asBeenDeflected = false;
         }
-        else
-        {
-            anim.speed = 1;
-        }
     }
 
     private void Move()
@@ -73,6 +69,7 @@ public class EnnemiEpee : MonoBehaviour
                 {
                     if(time <=3 && !asBeenDeflected)
                     {
+                        anim.speed = 1;
                         anim.Play("Sword");
                     }
                 }

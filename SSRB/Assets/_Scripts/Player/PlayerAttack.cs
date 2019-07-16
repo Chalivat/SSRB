@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Hit"))
         {
-            //animSabre.Play("SabreHit");
+            animSabre.Play("SabreCharge");
         }
 
         if (Input.GetButton("Hit"))

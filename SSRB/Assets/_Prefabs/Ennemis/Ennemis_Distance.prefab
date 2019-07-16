@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1246104077842034673}
   - component: {fileID: 1246104077842034672}
+  - component: {fileID: 401039062605041378}
+  - component: {fileID: 6770462087061123112}
   m_Layer: 0
   m_Name: Ennemis_Distance
   m_TagString: Untagged
@@ -46,22 +48,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4232180791290373334}
+  ejection: 5
   initialTime: 7
---- !u!114 &1246104078083029681
-MonoBehaviour:
+--- !u!65 &401039062605041378
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7091726961019091903}
+  m_GameObject: {fileID: 1246104077842034674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f35ea8871637d46a60a771cbe76d52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 6994600906240997454, guid: 50a0e83dfc99e254b9628b699a48bc1b,
-    type: 3}
-  target: {fileID: 1246104079716166566}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.770838, z: 1}
+  m_Center: {x: -0, y: 0.9446571, z: 0}
+--- !u!54 &6770462087061123112
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246104077842034674}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1246104079716166566
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +109,21 @@ Transform:
   m_Father: {fileID: 1246104077842034673}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246104078083029681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091726961019091903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f35ea8871637d46a60a771cbe76d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 6994600906240997454, guid: 50a0e83dfc99e254b9628b699a48bc1b,
+    type: 3}
+  target: {fileID: 1246104079716166566}
 --- !u!1001 &1246104078322574006
 PrefabInstance:
   m_ObjectHideFlags: 0

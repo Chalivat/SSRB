@@ -50,6 +50,7 @@ MonoBehaviour:
   speedMax: 200
   time: 0
   distanceMin: 2
+  ejection: 5
   anim: {fileID: 7712825268736599885}
 --- !u!54 &2485397278574277967
 Rigidbody:

@@ -5,9 +5,11 @@ using UnityEngine.Animations;
 
 public class Enemi_Distance : MonoBehaviour
 {
+    Rigidbody rb;
     GameObject player;
     Vector3 direction;
     public Animator anim;
+    public float ejection;
 
     public float initialTime;
     float shootTime;
@@ -16,6 +18,7 @@ public class Enemi_Distance : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         shootTime = initialTime;
+        rb = GetComponent<Rigidbody>();
     }
     
     void Update()
@@ -41,6 +44,14 @@ public class Enemi_Distance : MonoBehaviour
         {
             anim.Play("Shoot");
             shootTime = initialTime;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Tornade"))
+        {
+            rb.AddForce(Vector3.up * ejection, ForceMode.Impulse);
         }
     }
 }

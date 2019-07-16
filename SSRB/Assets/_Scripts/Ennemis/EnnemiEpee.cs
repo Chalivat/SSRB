@@ -11,6 +11,7 @@ public class EnnemiEpee : MonoBehaviour
     public float speedMax;
     public float time;
     public float distanceMin;
+    public float ejection;
     Vector3 direction;
     public Animator anim;
 
@@ -69,6 +70,14 @@ public class EnnemiEpee : MonoBehaviour
                 time = 0;
                 isReach = false;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Tornade"))
+        {
+            rb.AddForce(Vector3.up * ejection, ForceMode.Impulse);
         }
     }
 }

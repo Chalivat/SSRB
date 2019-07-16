@@ -32,8 +32,13 @@ public class EnnemiEpee : MonoBehaviour
 
         if (asBeenDeflected)
         {
-            anim.Play("Sword", -2);
+            anim.Play("Sword");
+            anim.speed = -2;
             asBeenDeflected = false;
+        }
+        else
+        {
+            anim.speed = 1;
         }
     }
 

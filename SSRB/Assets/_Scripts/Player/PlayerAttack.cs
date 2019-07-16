@@ -53,6 +53,7 @@ public class PlayerAttack : MonoBehaviour
     public float maxDeflectTime;
     void shieldUp()
     {
+        
         if (Input.GetButtonDown("Shield"))
         {
             animShield.Play("ShieldCharge");
@@ -62,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButton("Shield"))
         {
             chargingShield += Time.deltaTime;
-            Debug.Log(chargingShield);
+
         }
         else ShieldParticles.Stop();
 

@@ -10,21 +10,33 @@ public class Enemi_Distance : MonoBehaviour
     Vector3 direction;
     public Animator anim;
     public float ejection;
+    public bool onFloor = false;
+    public float fallSpeed;
 
-    public float initialTime;
+    public float initialTimeMin;
+    public float initialTimeMax;
     float shootTime;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        shootTime = initialTime;
+        shootTime = Random.Range(initialTimeMin,initialTimeMax);
         rb = GetComponent<Rigidbody>();
     }
     
     void Update()
     {
+        ShootRaycast();
         LookRotation();
-        Shoot();
+
+        if (onFloor)
+        {
+            Shoot();
+        }
+        else
+        {
+            rb.velocity = Vector3.down * fallSpeed;
+        }
     }
 
     void LookRotation()
@@ -43,7 +55,24 @@ public class Enemi_Distance : MonoBehaviour
         if(shootTime <= 0)
         {
             anim.Play("Shoot");
-            shootTime = initialTime;
+            shootTime = Random.Range(initialTimeMin,initialTimeMax);
+        }
+    }
+
+    void ShootRaycast()
+    {
+        RaycastHit hit;
+        Debug.DrawRay(transform.position + new Vector3(0, 0.1f, 0), Vector3.down * 0.1f, Color.blue);
+        if (Physics.Raycast(transform.position + new Vector3(0,0.1f,0), Vector3.down, out hit, 0.2f))
+        {
+            if (hit.transform.CompareTag("Ground"))
+            {
+                onFloor = true;
+            }
+        }
+        else
+        {
+            onFloor = false;
         }
     }
 

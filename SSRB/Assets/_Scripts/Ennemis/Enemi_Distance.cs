@@ -63,7 +63,7 @@ public class Enemi_Distance : MonoBehaviour
     {
         RaycastHit hit;
         Debug.DrawRay(transform.position + new Vector3(0, 0.1f, 0), Vector3.down * 0.1f, Color.blue);
-        if (Physics.Raycast(transform.position + new Vector3(0,0.1f,0), Vector3.down, out hit, 0.2f))
+        if (Physics.Raycast(transform.position + new Vector3(0,0.1f,0), Vector3.down, out hit, 0.3f))
         {
             if (hit.transform.CompareTag("Ground"))
             {

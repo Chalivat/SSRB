@@ -5002,7 +5002,7 @@ GameObject:
   - component: {fileID: 7253992763353598284}
   m_Layer: 0
   m_Name: Sabre
-  m_TagString: Untagged
+  m_TagString: Sabre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5227,6 +5227,7 @@ GameObject:
   - component: {fileID: 7253992764678313929}
   - component: {fileID: 7253992764678313933}
   - component: {fileID: 7253992764678313970}
+  - component: {fileID: 1804992293}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5359,3 +5360,17 @@ MonoBehaviour:
   maxDeflectTime: 2
   shieldCharged: {fileID: 7249658209862134871, guid: 4f8d1370a2aae5e4c895452f2ea96643,
     type: 3}
+--- !u!114 &1804992293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253992764678313928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d944c318ccd714ca0d5d71db0726a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vie: 0
+  healthBar: {fileID: 0}

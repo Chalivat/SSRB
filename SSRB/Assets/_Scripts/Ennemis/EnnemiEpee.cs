@@ -63,7 +63,7 @@ public class EnnemiEpee : MonoBehaviour
             isFriendHere = false;
             velocity = Vector3.zero;
             isReach = true;
-            if(time <= Random.Range(10,20))
+            if(time <= Random.Range(5,20))
             {
                 if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
                 {
@@ -127,7 +127,7 @@ public class EnnemiEpee : MonoBehaviour
     {
         RaycastHit hit;
         Debug.DrawRay(transform.position, Vector3.down * 0.1f,Color.blue);
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, 0.1f))
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, 0.3f))
         {
             if (hit.transform.CompareTag("Ground"))
             {

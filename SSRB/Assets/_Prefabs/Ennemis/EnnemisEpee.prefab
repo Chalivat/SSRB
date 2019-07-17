@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4681987386696071847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 397291441780886071}
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   anim: {fileID: 7712825268736599885}
   asBeenDeflected: 0
   onFloor: 0
-  health: 3
+  health: 10
 --- !u!54 &2485397278574277967
 Rigidbody:
   m_ObjectHideFlags: 0

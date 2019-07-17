@@ -29,6 +29,17 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Hit"))
         {
+                if (!animSabre.GetBool("hit1"))
+                {
+                    animSabre.SetBool("hit1", true);
+                    animSabre.SetBool("hit2", false);
+                }
+                else
+                {
+                    animSabre.SetBool("hit1", false);
+                    animSabre.SetBool("hit2", true);
+                }
+            
             
         }
 
@@ -37,28 +48,17 @@ public class PlayerAttack : MonoBehaviour
             chargingHit += Time.deltaTime;
             if (chargingHit >= .2f)
             {
-                animSabre.Play("SabreCharge");
+                //animSabre.Play("SabreCharge");
+                animSabre.SetBool("isCharging",true);
             }
         }
 
         if (Input.GetButtonUp("Hit"))
         {
+            animSabre.SetBool("isCharging", false);
             if (chargingHit >= .5f)
             {
                 animSabre.Play("SabreEstoc");
-            }
-            else
-            {
-                if (!animSabre.GetBool("hit1"))
-                {
-                    animSabre.SetBool("hit1",true);
-                    animSabre.SetBool("hit2",false);
-                }
-                else
-                {
-                    animSabre.SetBool("hit1",false);
-                    animSabre.SetBool("hit2",true);
-                }
             }
             chargingHit = 0;
 

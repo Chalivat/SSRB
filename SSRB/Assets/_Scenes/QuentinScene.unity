@@ -1492,6 +1492,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Sabre
       objectReference: {fileID: 0}
+    - target: {fileID: 7253992763353598280, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1804992293, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
       propertyPath: healthBar
       value: 

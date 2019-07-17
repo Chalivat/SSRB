@@ -17,6 +17,14 @@ public class Lock : MonoBehaviour
     
     void Update()
     {
+
+        for (int i = 0; i < ennemies.Count; i++)
+        {
+            if (ennemies[i] == null)
+            {
+                ennemies.RemoveAt(i);
+            }
+        }
         if (Input.GetButtonDown("Lock"))
         {
             if (index >= ennemies.Count -1)
@@ -25,8 +33,12 @@ public class Lock : MonoBehaviour
             }
             else index++;
         }
-        Target = ennemies[index];
 
-        cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position) +Vector3.up;
+        if (ennemies.Count != 0)
+        {
+            Target = ennemies[index];
+            cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position) + Vector3.up;
+        }
+
     }
 }

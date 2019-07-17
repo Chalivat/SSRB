@@ -5,10 +5,12 @@ using UnityEngine;
 public class SwordCollision : MonoBehaviour
 {
     public EnnemiEpee epee;
+    HealthComponent playerVie;
 
     void Start()
     {
         epee.GetComponent<EnnemiEpee>();
+        playerVie = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthComponent>();
     }
     
     void Update()
@@ -21,6 +23,10 @@ public class SwordCollision : MonoBehaviour
         if (other.CompareTag("Player") && PlayerAttack.canDeflect)
         {
             epee.asBeenDeflected = true;
+        }
+        else if(other.CompareTag("Player") && !PlayerAttack.canDeflect)
+        {
+            playerVie.vie -= 1;
         }
     }
 }

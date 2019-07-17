@@ -8,11 +8,12 @@ public class Projectile_Behavior : MonoBehaviour
     Rigidbody rb;
     public float speed;
     bool asBeenDeflected = false;
-
+    HealthComponent playerVie;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerVie = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthComponent>();
         player = GameObject.FindGameObjectWithTag("Player");
         transform.LookAt(player.transform.position);
         rb.AddForce(transform.forward * speed, ForceMode.Force);
@@ -22,6 +23,7 @@ public class Projectile_Behavior : MonoBehaviour
     {
         if (other.CompareTag("Player") && !PlayerAttack.canDeflect)
         {
+            playerVie.vie -= 1;
             Destroy(gameObject);
         }
         else if(other.CompareTag("Player") && PlayerAttack.canDeflect)
@@ -33,6 +35,7 @@ public class Projectile_Behavior : MonoBehaviour
 
         if(other.CompareTag("Distance") && asBeenDeflected)
         {
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

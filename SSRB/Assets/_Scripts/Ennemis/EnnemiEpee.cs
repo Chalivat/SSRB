@@ -13,15 +13,18 @@ public class EnnemiEpee : MonoBehaviour
     public float distanceMin;
     public float ejection;
     public float fallSpeed;
+    public GameObject sword;
     Vector3 direction;
     Vector3 velocity;
     public Animator anim;
     public bool asBeenDeflected = false;
+    bool asBeenHit = false;
 
     bool isReach = false;
     bool isFriendHere = false;
     public bool onFloor = false;
     float speed;
+    public int health;
 
     void Start()
     {
@@ -34,25 +37,7 @@ public class EnnemiEpee : MonoBehaviour
     {
         rb.velocity = velocity.normalized * speed * Time.deltaTime;
         ShootRaycast();
-        if (onFloor)
-        {
-            Move();
-        }
-        else
-        {
-            rb.velocity = Vector3.down * fallSpeed;
-        }
-
-        if (asBeenDeflected)
-        {
-            anim.Play("SwordBack");
-            asBeenDeflected = false;
-        }
-
-        if (isFriendHere)
-        {
-            velocity += transform.right;
-        }
+        Ifs();
     }
 
     private void Move()
@@ -88,6 +73,7 @@ public class EnnemiEpee : MonoBehaviour
                 {
                     if(time <= 1 && !asBeenDeflected)
                     {
+                        sword.GetComponent<BoxCollider>().enabled = true;
                         anim.Play("Sword");
                     }
                 }
@@ -97,6 +83,43 @@ public class EnnemiEpee : MonoBehaviour
                 time = 0;
                 isReach = false;
             }
+        }
+    }
+
+    private void Ifs()
+    {
+        if (onFloor)
+        {
+            Move();
+        }
+        else
+        {
+            rb.velocity = Vector3.down * fallSpeed;
+        }
+
+        if (asBeenDeflected)
+        {
+            sword.GetComponent<BoxCollider>().enabled = false;
+            anim.Play("SwordBack");
+            asBeenDeflected = false;
+        }
+
+        if (isFriendHere)
+        {
+            velocity += transform.right;
+        }
+
+        if (asBeenHit)
+        {
+            asBeenHit = false;
+            sword.GetComponent<BoxCollider>().enabled = false;
+            anim.Play("SwordBack");
+            health -= 1;
+        }
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -136,6 +159,10 @@ public class EnnemiEpee : MonoBehaviour
         if (other.CompareTag("Tornade"))
         {
             rb.AddForce(Vector3.up * ejection, ForceMode.Impulse);
+        }
+        if (other.CompareTag("Sabre"))
+        {
+            asBeenHit = true;
         }
     }
 

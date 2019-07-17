@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Swordman
   - Distance
+  - Sabre
   layers:
   - Default
   - TransparentFX

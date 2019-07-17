@@ -103,7 +103,7 @@ public class EnnemiEpee : MonoBehaviour
     void ShootRaycast()
     {
         RaycastHit hit;
-        Debug.DrawRay(transform.position, Vector3.down * 0.1f,Color.blue, 0.1f);
+        Debug.DrawRay(transform.position, Vector3.down * 0.1f,Color.blue);
         if(Physics.Raycast(transform.position, Vector3.down, out hit, 0.1f))
         {
             if (hit.transform.CompareTag("Ground"))

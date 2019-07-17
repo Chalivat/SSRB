@@ -49,7 +49,7 @@ MonoBehaviour:
   speedMin: 100
   speedMax: 200
   time: 0
-  distanceMin: 2
+  distanceMin: 2.5
   ejection: 120000
   fallSpeed: 1
   anim: {fileID: 7712825268736599885}

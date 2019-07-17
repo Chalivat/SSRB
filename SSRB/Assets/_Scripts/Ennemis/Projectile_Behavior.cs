@@ -7,6 +7,7 @@ public class Projectile_Behavior : MonoBehaviour
     GameObject player;
     Rigidbody rb;
     public float speed;
+    bool asBeenDeflected = false;
 
 
     void Start()
@@ -19,7 +20,18 @@ public class Projectile_Behavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerAttack.canDeflect)
+        {
+            Destroy(gameObject);
+        }
+        else if(other.CompareTag("Player") && PlayerAttack.canDeflect)
+        {
+            rb.velocity = Vector3.zero;
+            rb.AddForce(-transform.forward * speed, ForceMode.Force);
+            asBeenDeflected = true;
+        }
+
+        if(other.CompareTag("Distance") && asBeenDeflected)
         {
             Destroy(gameObject);
         }

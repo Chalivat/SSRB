@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7249658209862134874}
   - component: {fileID: 7249658209862134873}
   - component: {fileID: 7249658209862134872}
+  - component: {fileID: 3056657309495184144}
   m_Layer: 0
   m_Name: ShieldCharged
   m_TagString: Untagged
@@ -284,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1361,7 +1362,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.36320752, g: 0.8378131, b: 1, a: 1}
+        key0: {r: 0.23113209, g: 0.6782743, b: 1, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -4819,3 +4820,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3056657309495184144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249658209862134871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7067bfbbffc8ac4bbb12cdaac9c30ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2

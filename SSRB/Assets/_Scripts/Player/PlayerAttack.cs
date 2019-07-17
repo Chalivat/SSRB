@@ -29,28 +29,50 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Hit"))
         {
-            animSabre.Play("SabreCharge");
+            
         }
 
         if (Input.GetButton("Hit"))
         {
             chargingHit += Time.deltaTime;
+            if (chargingHit >= .2f)
+            {
+                animSabre.Play("SabreCharge");
+            }
         }
 
         if (Input.GetButtonUp("Hit"))
         {
-            if (chargingHit >= 0.5f)
+            if (chargingHit >= .5f)
             {
                 animSabre.Play("SabreEstoc");
             }
-            else animSabre.Play("SabreHit");
-
+            else
+            {
+                if (!animSabre.GetBool("hit1"))
+                {
+                    animSabre.SetBool("hit1",true);
+                    animSabre.SetBool("hit2",false);
+                }
+                else
+                {
+                    animSabre.SetBool("hit1",false);
+                    animSabre.SetBool("hit2",true);
+                }
+            }
             chargingHit = 0;
+
         }
     }
 
+    public int index;
+    private float timeSinceLastAttack;
+    
+    
+
     private float deflectTime;
     public float maxDeflectTime;
+
     void shieldUp()
     {
         
@@ -63,7 +85,6 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButton("Shield"))
         {
             chargingShield += Time.deltaTime;
-
         }
         else ShieldParticles.Stop();
 

@@ -26,14 +26,15 @@ public class CharacterController : MonoBehaviour
 
 
         Vector3 direction = new Vector3(x, 0, z);
+        Vector3 bis = direction;
         Quaternion newRot = Quaternion.LookRotation(cam.transform.forward);
         Vector3 nextRot = newRot.eulerAngles;
         nextRot.x = 0;
         nextRot.z = 0;
         newRot = Quaternion.Euler(nextRot);
-
         direction = newRot * direction;
-        if (direction.magnitude >= 1f)
+        Debug.Log(direction.magnitude + " : " + bis.magnitude);
+        if (direction.magnitude >= .5f)
         {
             rb.velocity = direction * speed;
         }
@@ -49,7 +50,7 @@ public class CharacterController : MonoBehaviour
 
         if (rb.velocity.magnitude >= .2f)
         {
-        transform.rotation = Quaternion.Lerp(transform.rotation,newRot,0.5f);
+            transform.rotation = Quaternion.Lerp(transform.rotation,newRot,0.5f);
         }
     }
 }

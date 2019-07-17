@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class tornado : MonoBehaviour
 {
-    
+    public float speed;
     void Start()
     {
         
@@ -12,6 +12,6 @@ public class tornado : MonoBehaviour
     
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * 5,Space.Self);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed,Space.Self);
     }
 }

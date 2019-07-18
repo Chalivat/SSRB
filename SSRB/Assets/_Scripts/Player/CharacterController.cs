@@ -51,7 +51,7 @@ public class CharacterController : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation,newRot,0.5f);
         }
-        else
+        else if (Lock.Target)
         {
             Locked();
         }

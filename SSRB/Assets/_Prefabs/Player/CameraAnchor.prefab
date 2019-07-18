@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5120038388900356023}
   - component: {fileID: 5120038388900356022}
   - component: {fileID: 5120038388900356021}
+  - component: {fileID: 232283863}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -177,6 +178,22 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &232283863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120038388900356025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453f68edd78f4bc43bef2e5ba805f447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.05
+  decreaseFactor: 1
 --- !u!1 &5120038390048887043
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 100
+  autoAimSpeed: 5
 --- !u!1818360608 &5120038390048887070
 PositionConstraint:
   m_ObjectHideFlags: 0
@@ -232,13 +250,13 @@ PositionConstraint:
   m_GameObject: {fileID: 5120038390048887043}
   m_Enabled: 1
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 1, z: 0}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_TranslationAtRest: {x: 0, y: 3, z: 0}
+  m_TranslationOffset: {x: 0, y: 2, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
   m_IsContraintActive: 1
-  m_IsLocked: 1
+  m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 0}
     weight: 1

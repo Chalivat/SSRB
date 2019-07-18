@@ -7,6 +7,7 @@ public class CharacterController : MonoBehaviour
     public float speed;
     private Rigidbody rb;
     public Camera cam;
+    public Animator Player;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,7 +37,23 @@ public class CharacterController : MonoBehaviour
         if (direction.magnitude >= .5f)
         {
             rb.velocity = direction * speed;
+            if (Lock.Target)
+            {
+                Player.SetBool("isStrafing", true);
+                Player.SetBool("isRunning", false);
+            }
+            else
+            {
+                Player.SetBool("isRunning",true);
+                Player.SetBool("isStrafing", false);
+            }
         }
+        else
+        {
+            Player.SetBool("isRunning",false);
+            Player.SetBool("isStrafing", false);
+        }
+        adaptStrafing();
     }
 
     void Rotate()
@@ -49,7 +66,7 @@ public class CharacterController : MonoBehaviour
 
         if (rb.velocity.magnitude >= .2f && !Lock.Target)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation,newRot,0.5f);
+            transform.rotation = Quaternion.Lerp(transform.rotation,newRot,0.2f);
         }
         else if (Lock.Target)
         {
@@ -65,5 +82,14 @@ public class CharacterController : MonoBehaviour
         nextRot.z = 0;
         newRot = Quaternion.Euler(nextRot);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.5f);
+    }
+
+    void adaptStrafing()
+    {
+        if (Input.GetAxis("Strafe") > 0)
+        {
+            Player.SetFloat("StrafingSpeed", -1);
+        }
+        else Player.SetFloat("StrafingSpeed", 1);
     }
 }

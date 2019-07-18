@@ -48,5 +48,7 @@ public class CameraShake : MonoBehaviour
             camTransform.localPosition = originalPos;
         }
     }
+
+    
 }
 

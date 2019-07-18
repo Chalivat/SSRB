@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 100
-  autoAimSpeed: 5
+  autoAimSpeed: 8
 --- !u!1818360608 &5120038390048887070
 PositionConstraint:
   m_ObjectHideFlags: 0
@@ -250,8 +250,8 @@ PositionConstraint:
   m_GameObject: {fileID: 5120038390048887043}
   m_Enabled: 1
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 3, z: 0}
-  m_TranslationOffset: {x: 0, y: 2, z: 0}
+  m_TranslationAtRest: {x: 0, y: 1, z: 0}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1

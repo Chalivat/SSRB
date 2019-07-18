@@ -305,6 +305,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fc7e6358011014e9e6bdd1dd8b05cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &412358551 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 273057730485623438, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
+    type: 3}
+  m_PrefabInstance: {fileID: 7253992763398654610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &596258193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -901,8 +907,8 @@ MonoBehaviour:
   nonLightmappedOnly: 0
   lightTypeExtent: 1
   m_SpotLightShape: 0
-  shapeWidth: 5.07
-  shapeHeight: 6.21
+  shapeWidth: 37.283974
+  shapeHeight: 42.65063
   aspectRatio: 1
   shapeRadius: 0
   maxSmoothness: 0.99
@@ -911,7 +917,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 600.49
+  displayLightIntensity: 1680.2
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -939,7 +945,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 6.0709453
+  m_Intensity: 0.33632833
   m_Range: 116.7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1447,6 +1453,16 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 1548098910}
+    - target: {fileID: 5120038390048887070, guid: 59cdf85215195fc4c972a82f166f1aaf,
+        type: 3}
+      propertyPath: m_TranslationAtRest.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120038390048887070, guid: 59cdf85215195fc4c972a82f166f1aaf,
+        type: 3}
+      propertyPath: m_TranslationOffset.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59cdf85215195fc4c972a82f166f1aaf, type: 3}
 --- !u!1001 &7253992763398654610
@@ -1521,6 +1537,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1202288441}
+    - target: {fileID: 7253992764678313933, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
+        type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1804992293, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
       propertyPath: healthBar
       value: 
@@ -1529,5 +1550,10 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1720482815}
+    - target: {fileID: 7253992764678313970, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 412358551}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}

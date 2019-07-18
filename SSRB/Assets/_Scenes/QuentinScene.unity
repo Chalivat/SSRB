@@ -305,12 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fc7e6358011014e9e6bdd1dd8b05cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &412358551 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 273057730485623438, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
-    type: 3}
-  m_PrefabInstance: {fileID: 7253992763398654610}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &596258193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1537,11 +1531,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1202288441}
-    - target: {fileID: 7253992764678313933, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
-        type: 3}
-      propertyPath: speed
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1804992293, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
       propertyPath: healthBar
       value: 
@@ -1550,10 +1539,5 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1720482815}
-    - target: {fileID: 7253992764678313970, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 412358551}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}

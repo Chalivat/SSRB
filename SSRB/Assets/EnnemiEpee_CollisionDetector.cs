@@ -23,7 +23,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         idle = anim.GetBehaviour<EnnemisEppee_V2>();
-        sword = gameObject.GetComponentInChildren<BoxCollider>();
+        sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         healthBar.maxValue = health;
     }

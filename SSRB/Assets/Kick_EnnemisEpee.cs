@@ -2,41 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpAttack_EnnemisEpee : StateMachineBehaviour
+public class Kick_EnnemisEpee : StateMachineBehaviour
 {
-    public BoxCollider sword;
-    EnnemisEppee_V2 idle;
+    public BoxCollider foot;
     SwordCollision deflect;
-    public float initialtimebeforeHit;
-    float timebeforeHit;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         deflect = animator.GetComponentInChildren<SwordCollision>();
-        SwordCollision.damage = 4;
-        SwordCollision.knockback = 8;
-        idle = animator.GetBehaviour<EnnemisEppee_V2>();
-        sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
-        timebeforeHit = initialtimebeforeHit;
+        foot = GameObject.FindGameObjectWithTag("Foot").GetComponent<BoxCollider>();
+        foot.enabled = true;
     }
 
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.transform.position += animator.deltaPosition;
 
-        timebeforeHit -= Time.deltaTime;
-        if(timebeforeHit <= 0)
-        {
-            sword.enabled = true;
-            idle.isBlocking = false;
-        }
-
-        if (deflect.asBeenDeflected)
-        {
-            animator.Play("Impact 0");
-            deflect.asBeenDeflected = false;
-        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

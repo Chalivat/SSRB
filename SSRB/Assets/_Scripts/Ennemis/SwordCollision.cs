@@ -5,7 +5,9 @@ using UnityEngine;
 public class SwordCollision : MonoBehaviour
 {
     HealthComponent playerVie;
+    GameObject player;
     public static int damage;
+    public static int knockback;
     public bool asBeenDeflected = false;
     bool Block = false;
     float blockTime;
@@ -13,6 +15,7 @@ public class SwordCollision : MonoBehaviour
     void Start()
     {
         playerVie = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthComponent>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     
     void Update()
@@ -37,7 +40,9 @@ public class SwordCollision : MonoBehaviour
         }
         else if(other.CompareTag("Player") && !PlayerAttack.canDeflect)
         {
+            Vector3 direction = transform.position - player.transform.position;
             playerVie.vie -= damage;
+            playerVie.GetComponent<Rigidbody>().AddForce(-direction * knockback, ForceMode.Impulse);
         }
     }
 }

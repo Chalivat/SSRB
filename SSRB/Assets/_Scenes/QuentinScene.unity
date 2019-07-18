@@ -248,6 +248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ennemis_Distance
       objectReference: {fileID: 0}
+    - target: {fileID: 1246104077842034674, guid: d1f4f4484eab7734e9b016c62491ba1a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1246104077842034673, guid: d1f4f4484eab7734e9b016c62491ba1a,
         type: 3}
       propertyPath: m_LocalPosition.x

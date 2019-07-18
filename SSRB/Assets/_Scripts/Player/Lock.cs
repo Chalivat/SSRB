@@ -20,7 +20,7 @@ public class Lock : MonoBehaviour
     
     void Update()
     {
-        ChangeSelection();
+        
         for (int i = 0; i < ennemies.Count; i++)
         {
             if (ennemies[i] == null)
@@ -33,10 +33,15 @@ public class Lock : MonoBehaviour
             isLocked = !isLocked;
         }
 
+        if (ennemies.Count != 0)
+        {
+            ChangeSelection();
+        }
         if (ennemies.Count != 0 && isLocked)
         {
             Target = ennemies[index];
             cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position + Vector3.up);
+            
         }
         else Target = null;
     }

@@ -4,32 +4,47 @@ using UnityEngine;
 
 public class Hitting : StateMachineBehaviour
 {
-
-    public BoxCollider SwordCollider;
-
+    public int attackNumber;
+    private GameObject Player;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject.FindGameObjectWithTag("Sabre").GetComponent<BoxCollider>().enabled = true;
-           Debug.Log("ACTIVATED : " + Time.frameCount);
+        Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerAttack.StopMovement();
+        
+        if (attackNumber == 2)
+        {
+            animator.SetBool("wantToCombo",false);
+        }
     }
 
    
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //Debug.Log(stateInfo.normalizedTime +" : "+ stateInfo.length);
-       
-        //if (stateInfo.normalizedTime >= stateInfo.length)
-        //{
-        //    animator.gameObject.GetComponent<BoxCollider>().enabled = false;
-        //    Debug.Log("off :  " + Time.frameCount);
-        //}
-        
+
+        if (attackNumber == 2)
+        {
+            Player.transform.position += animator.deltaPosition;
+        }
+
+        if (attackNumber == 1 && stateInfo.normalizedTime >= stateInfo.length && animator.GetBool("wantToCombo"))
+        {
+            animator.SetBool("wantToCombo", false);
+            animator.Play("SpinHit");
+        }
+
+        if (attackNumber == 1)
+        {
+            if (Input.GetButtonDown("Hit"))
+            {
+                animator.SetBool("wantToCombo", true);
+            }
+        }
     }
 
     
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject.FindGameObjectWithTag("Sabre").GetComponent<BoxCollider>().enabled = false;
+        
     }
 
     

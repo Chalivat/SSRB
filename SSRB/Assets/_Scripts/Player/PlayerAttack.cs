@@ -16,37 +16,43 @@ public class PlayerAttack : MonoBehaviour
     public GameObject Tornado;
 
     public static bool canDeflect;
+
+    public float freezeTime;
+
     void Start()
     {
         psMain = ShieldParticles.main;
         ShieldParticles.Stop();
         GameObject.FindGameObjectWithTag("Sabre").GetComponent<BoxCollider>().enabled = false;
     }
-    
+
     void Update()
     {
-       hit();
-       shieldUp();
-       
-       //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
+        hit();
+        shieldUp();
 
-       if (Input.GetKeyDown(KeyCode.Space))
-       {
-           TimeStop();
-       }
-       TimeGo();
+        //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TimeStop();
+        }
+
+        TimeGo();
+        Activate();
     }
 
     void hit()
     {
         if (Input.GetButtonDown("Hit"))
         {
-                Player.Play("Hit");
+            Player.Play("Hit");
+            
         }
 
         if (Input.GetButton("Hit"))
         {
-            
+
         }
 
         if (Input.GetButtonUp("Hit"))
@@ -59,8 +65,8 @@ public class PlayerAttack : MonoBehaviour
 
     public int index;
     private float timeSinceLastAttack;
-    
-    
+
+
 
     private float deflectTime;
     public float maxDeflectTime;
@@ -68,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
 
     void shieldUp()
     {
-        
+
         if (Input.GetButtonDown("Shield"))
         {
             animShield.Play("ShieldCharge");
@@ -79,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButton("Shield"))
         {
             chargingShield += Time.deltaTime;
-            if (chargingShield >= 1.2f && chargingShield <1.3)
+            if (chargingShield >= 1.2f && chargingShield < 1.3)
             {
                 psMain.startColor = Color.cyan;
                 Instantiate(shieldCharged, ShieldParticles.transform.position, transform.rotation);
@@ -95,6 +101,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Instantiate(Tornado, transform.position, transform.rotation);
             }
+
             chargingShield = 0;
         }
 
@@ -111,6 +118,7 @@ public class PlayerAttack : MonoBehaviour
 
 
     private int frameCount;
+
     void TimeStop()
     {
         Time.timeScale = 0.1f;
@@ -126,4 +134,17 @@ public class PlayerAttack : MonoBehaviour
         else Time.timeScale = 1;
     }
 
+    public static void StopMovement()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().freezeTime = 0;
+    }
+    void Activate()
+    {
+        if (freezeTime < 1.2f)
+        {
+            freezeTime += Time.fixedDeltaTime;
+        }
+        else  GetComponent<CharacterController>().enabled = true;
+    }
 }

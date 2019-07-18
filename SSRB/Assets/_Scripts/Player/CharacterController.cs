@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
 
     void Move()
     {
+        
         float x = Input.GetAxis("Strafe");
         float z = -Input.GetAxis("Forward");
 

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Hitting : StateMachineBehaviour
 {
-    
 
+    public BoxCollider SwordCollider;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-   {
-       animator.gameObject.GetComponent<BoxCollider>().enabled = true;
+    {
+        GameObject.FindGameObjectWithTag("Sabre").GetComponent<BoxCollider>().enabled = true;
            Debug.Log("ACTIVATED : " + Time.frameCount);
     }
 
@@ -18,18 +18,18 @@ public class Hitting : StateMachineBehaviour
     {
         //Debug.Log(stateInfo.normalizedTime +" : "+ stateInfo.length);
        
-        if (stateInfo.normalizedTime >= stateInfo.length)
-        {
-            animator.gameObject.GetComponent<BoxCollider>().enabled = false;
-            Debug.Log("off :  " + Time.frameCount);
-        }
+        //if (stateInfo.normalizedTime >= stateInfo.length)
+        //{
+        //    animator.gameObject.GetComponent<BoxCollider>().enabled = false;
+        //    Debug.Log("off :  " + Time.frameCount);
+        //}
         
     }
 
     
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.gameObject.GetComponent<BoxCollider>().enabled = false;
+        GameObject.FindGameObjectWithTag("Sabre").GetComponent<BoxCollider>().enabled = false;
     }
 
     

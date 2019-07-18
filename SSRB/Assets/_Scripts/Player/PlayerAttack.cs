@@ -5,7 +5,7 @@ using UnityEngine.Assertions.Comparers;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private GameObject Sabre;
+    public Animator Player;
     public Animator animSabre;
     public Animator animShield;
 
@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     {
         psMain = ShieldParticles.main;
         ShieldParticles.Stop();
+        GameObject.FindGameObjectWithTag("Sabre").GetComponent<BoxCollider>().enabled = false;
     }
     
     void Update()
@@ -40,41 +41,20 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Hit"))
         {
-                if (!animSabre.GetBool("hit1"))
-                {
-                    animSabre.SetBool("hit1", true);
-                    animSabre.SetBool("hit2", false);
-                }
-                else
-                {
-                    animSabre.SetBool("hit1", false);
-                    animSabre.SetBool("hit2", true);
-                }
-            
-            
+                Player.Play("Hit");
         }
 
         if (Input.GetButton("Hit"))
         {
-            chargingHit += Time.deltaTime;
-            if (chargingHit >= .4f)
-            {
-                //animSabre.Play("SabreCharge");
-                animSabre.SetBool("isCharging",true);
-            }
+            
         }
 
         if (Input.GetButtonUp("Hit"))
         {
-            animSabre.SetBool("isCharging", false);
-            if (chargingHit >= .5f)
-            {
-                animSabre.Play("SabreEstoc");
-            }
-            chargingHit = 0;
+
         }
 
-        
+
     }
 
     public int index;

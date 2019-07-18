@@ -5,6 +5,7 @@ using UnityEngine.Assertions.Comparers;
 
 public class PlayerAttack : MonoBehaviour
 {
+    private GameObject Sabre;
     public Animator animSabre;
     public Animator animShield;
 
@@ -19,18 +20,22 @@ public class PlayerAttack : MonoBehaviour
     {
         psMain = ShieldParticles.main;
         ShieldParticles.Stop();
+        //Sabre.GetComponent<BoxCollider>().enabled = false;
     }
     
     void Update()
     {
        hit();
        shieldUp();
+       Sabre = animSabre.gameObject;
+       //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
     }
 
     void hit()
     {
         if (Input.GetButtonDown("Hit"))
         {
+            //Sabre.GetComponent<BoxCollider>().enabled = true;
                 if (!animSabre.GetBool("hit1"))
                 {
                     animSabre.SetBool("hit1", true);
@@ -63,7 +68,11 @@ public class PlayerAttack : MonoBehaviour
                 animSabre.Play("SabreEstoc");
             }
             chargingHit = 0;
+        }
 
+        if (!animSabre.GetBool("hit1") && !animSabre.GetBool("hit2"))
+        {
+            //Sabre.GetComponent<BoxCollider>().enabled = false;
         }
     }
 

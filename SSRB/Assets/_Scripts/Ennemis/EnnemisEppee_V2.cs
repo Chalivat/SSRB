@@ -16,6 +16,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     public float maxTime;
     public string[] animations;
     public bool isBlocking = false;
+    DeflectImpact deflectImpact;
 
 
     GameObject player;
@@ -29,6 +30,8 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.speed = 1;
+        deflectImpact = animator.GetBehaviour<DeflectImpact>();
+        deflectImpact.isImpacted = false;
         player = GameObject.FindGameObjectWithTag("Player");
         rb = animator.GetComponent<Rigidbody>();
         anim = animator;

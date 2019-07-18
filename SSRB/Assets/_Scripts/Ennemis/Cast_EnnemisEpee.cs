@@ -7,14 +7,18 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
     SwordCollision deflect;
+    DeflectImpact deflectImpact;
     public float initialtimebeforeHit;
     float timebeforeHit;
+    public int knockback;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         deflect = animator.GetComponentInChildren<SwordCollision>();
+        deflectImpact = animator.GetBehaviour<DeflectImpact>();
+        deflectImpact.isImpacted = true;
         SwordCollision.damage = 3;
-        SwordCollision.knockback = 15;
+        SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         idle.isBlocking = false;
         sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();

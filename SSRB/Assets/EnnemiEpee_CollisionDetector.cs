@@ -12,6 +12,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
 
     BoxCollider sword;
     EnnemisEppee_V2 idle;
+    DeflectImpact deflectImpact;
     Rigidbody rb;
     Animator anim;
     Vector3 direction;
@@ -23,6 +24,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         idle = anim.GetBehaviour<EnnemisEppee_V2>();
+        deflectImpact = anim.GetBehaviour<DeflectImpact>();
         sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         healthBar.maxValue = health;
@@ -55,7 +57,10 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             direction = transform.position - player.transform.position;
             rb.AddForce(direction * knockback, ForceMode.Impulse);
             sword.GetComponent<BoxCollider>().enabled = false;
-            anim.Play("Impact");
+            if (!deflectImpact)
+            {
+                anim.Play("Impact");
+            }
             health -= 1;
         }
         else if (other.CompareTag("Sabre") && idle.isBlocking)

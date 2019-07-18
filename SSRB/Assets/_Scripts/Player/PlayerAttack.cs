@@ -20,22 +20,26 @@ public class PlayerAttack : MonoBehaviour
     {
         psMain = ShieldParticles.main;
         ShieldParticles.Stop();
-        //Sabre.GetComponent<BoxCollider>().enabled = false;
     }
     
     void Update()
     {
        hit();
        shieldUp();
-       Sabre = animSabre.gameObject;
+       
        //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
+
+       if (Input.GetKeyDown(KeyCode.Space))
+       {
+           TimeStop();
+       }
+       TimeGo();
     }
 
     void hit()
     {
         if (Input.GetButtonDown("Hit"))
         {
-            //Sabre.GetComponent<BoxCollider>().enabled = true;
                 if (!animSabre.GetBool("hit1"))
                 {
                     animSabre.SetBool("hit1", true);
@@ -53,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButton("Hit"))
         {
             chargingHit += Time.deltaTime;
-            if (chargingHit >= .2f)
+            if (chargingHit >= .4f)
             {
                 //animSabre.Play("SabreCharge");
                 animSabre.SetBool("isCharging",true);
@@ -70,10 +74,7 @@ public class PlayerAttack : MonoBehaviour
             chargingHit = 0;
         }
 
-        if (!animSabre.GetBool("hit1") && !animSabre.GetBool("hit2"))
-        {
-            //Sabre.GetComponent<BoxCollider>().enabled = false;
-        }
+        
     }
 
     public int index;
@@ -128,6 +129,21 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    
+
+    private int frameCount;
+    void TimeStop()
+    {
+        Time.timeScale = 0.1f;
+        frameCount = 0;
+    }
+
+    void TimeGo()
+    {
+        if (frameCount < 5)
+        {
+            frameCount++;
+        }
+        else Time.timeScale = 1;
+    }
 
 }

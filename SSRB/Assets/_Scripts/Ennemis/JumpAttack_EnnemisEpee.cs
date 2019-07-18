@@ -9,12 +9,13 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
     SwordCollision deflect;
     public float initialtimebeforeHit;
     float timebeforeHit;
+    public int knockback;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         deflect = animator.GetComponentInChildren<SwordCollision>();
         SwordCollision.damage = 4;
-        SwordCollision.knockback = 8;
+        SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
         timebeforeHit = initialtimebeforeHit;

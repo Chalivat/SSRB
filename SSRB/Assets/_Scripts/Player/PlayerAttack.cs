@@ -39,7 +39,6 @@ public class PlayerAttack : MonoBehaviour
         }
 
         TimeGo();
-        Activate();
     }
 
     void hit()
@@ -134,17 +133,6 @@ public class PlayerAttack : MonoBehaviour
         else Time.timeScale = 1;
     }
 
-    public static void StopMovement()
-    {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().freezeTime = 0;
-    }
-    void Activate()
-    {
-        if (freezeTime < 1.2f)
-        {
-            freezeTime += Time.fixedDeltaTime;
-        }
-        else  GetComponent<CharacterController>().enabled = true;
-    }
+    
+    
 }

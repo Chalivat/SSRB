@@ -4909,6 +4909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 7253992763353598280}
+  controller: {fileID: 7253992764678313933}
+  ps: {fileID: 4783333024330046558}
 --- !u!1 &7253992763345867574
 GameObject:
   m_ObjectHideFlags: 0

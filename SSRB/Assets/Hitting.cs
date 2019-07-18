@@ -9,7 +9,7 @@ public class Hitting : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        PlayerAttack.StopMovement();
+        
         
         if (attackNumber == 2)
         {
@@ -44,7 +44,7 @@ public class Hitting : StateMachineBehaviour
     
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        animator.gameObject.GetComponent<PlayerCanHit>().canMove();
     }
 
     

@@ -700,7 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 6
   ejection: 20
-  knockback: 20
+  knockback: 50
   healthBar: {fileID: 4505834886970948171}
 --- !u!1 &2568894366166139231
 GameObject:

@@ -58,5 +58,10 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             anim.Play("Impact");
             health -= 1;
         }
+        else if (other.CompareTag("Sabre") && idle.isBlocking)
+        {
+            direction = transform.position - player.transform.position;
+            rb.AddForce(direction * knockback/2, ForceMode.Impulse);
+        }
     }
 }

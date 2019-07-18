@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4681987386696071841}
-  - component: {fileID: 4681987386696071846}
   - component: {fileID: 2485397278574277967}
   - component: {fileID: 2181696381579782857}
   m_Layer: 0
@@ -34,29 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4681987386696071846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681987386696071847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05ba5f8528fab64b8cacab68e91ca37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMin: 350
-  speedMax: 500
-  time: 0
-  distanceMin: 2.5
-  ejection: 120000
-  fallSpeed: 1
-  sword: {fileID: 4681987387220397565}
-  anim: {fileID: 7712825268736599885}
-  asBeenDeflected: 0
-  onFloor: 0
-  health: 10
 --- !u!54 &2485397278574277967
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -208,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f187b3fc3716a5e45baa9490c215e987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  epee: {fileID: 4681987386696071846}
+  epee: {fileID: 0}
 --- !u!1001 &4681987385745908013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,12 +262,6 @@ PrefabInstance:
 --- !u!4 &397291441780886071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: df7173c95fe1681439e5cb078a08a5d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 4681987385745908013}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7712825268736599885 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: df7173c95fe1681439e5cb078a08a5d9,
     type: 3}
   m_PrefabInstance: {fileID: 4681987385745908013}
   m_PrefabAsset: {fileID: 0}

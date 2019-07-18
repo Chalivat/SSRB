@@ -5,10 +5,13 @@ using UnityEngine;
 public class Slash_EnnemisEpee : StateMachineBehaviour
 {
     public BoxCollider sword;
+    EnnemisEppee_V2 idle;
     
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         SwordCollision.damage = 1;
+        idle = animator.GetBehaviour<EnnemisEppee_V2>();
+        idle.isBlocking = false;
         sword = animator.gameObject.GetComponentInChildren<BoxCollider>();
         sword.enabled = true;
     }

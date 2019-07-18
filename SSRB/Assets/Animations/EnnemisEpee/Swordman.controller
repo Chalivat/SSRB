@@ -372,3 +372,4 @@ MonoBehaviour:
   - Slash
   - Cast
   - JumpAttack
+  isBlocking: 0

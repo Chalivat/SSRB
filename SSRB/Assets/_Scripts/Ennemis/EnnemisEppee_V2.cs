@@ -14,6 +14,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     public float minTime;
     public float maxTime;
     public string[] animations;
+    public bool isBlocking = false;
 
 
     GameObject player;
@@ -32,6 +33,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
         sword = animator.gameObject.GetComponentInChildren<BoxCollider>();
         sword.enabled = false;
         time = Random.Range(minTime, maxTime);
+        isBlocking = true;
     }
 
 

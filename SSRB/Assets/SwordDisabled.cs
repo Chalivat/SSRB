@@ -2,30 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slash_EnnemisEpee : StateMachineBehaviour
+public class SwordDisabled : StateMachineBehaviour
 {
     public BoxCollider sword;
-    EnnemisEppee_V2 idle;
-    SwordCollision deflect;
-    
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        deflect = animator.GetComponentInChildren<SwordCollision>();
-        SwordCollision.damage = 1;
-        idle = animator.GetBehaviour<EnnemisEppee_V2>();
-        idle.isBlocking = false;
         sword = animator.gameObject.GetComponentInChildren<BoxCollider>();
-        sword.enabled = true;
+        sword.enabled = false;
     }
-    
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if (deflect.asBeenDeflected)
-        {
-            animator.Play("SlashDeflect");
-            deflect.asBeenDeflected = false;
-        }
-    }
+
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

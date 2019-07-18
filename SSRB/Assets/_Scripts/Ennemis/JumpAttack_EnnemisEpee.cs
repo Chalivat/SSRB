@@ -6,9 +6,11 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
 {
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
+    SwordCollision deflect;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        deflect = animator.GetComponentInChildren<SwordCollision>();
         SwordCollision.damage = 4;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         idle.isBlocking = false;
@@ -20,6 +22,12 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.transform.position += animator.deltaPosition;
+
+        if (deflect.asBeenDeflected)
+        {
+            animator.Play("JumpAttackDeflect");
+            deflect.asBeenDeflected = false;
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

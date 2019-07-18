@@ -27,6 +27,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.speed = 1;
         player = GameObject.FindGameObjectWithTag("Player");
         rb = animator.GetComponent<Rigidbody>();
         anim = animator;

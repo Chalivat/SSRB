@@ -6,9 +6,11 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
 {
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
+    SwordCollision deflect;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        deflect = animator.GetComponentInChildren<SwordCollision>();
         SwordCollision.damage = 3;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         idle.isBlocking = false;
@@ -16,11 +18,15 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
         sword.enabled = true;
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (deflect.asBeenDeflected)
+        {
+            animator.Play("CastDeflect");
+            deflect.asBeenDeflected = false;
+        }
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

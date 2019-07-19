@@ -25,6 +25,11 @@ public class Lock : MonoBehaviour
         {
             if (ennemies[i] == null)
             {
+                if (index >= ennemies.Count - 1)
+                {
+                    index = 0;
+                }
+                else index++;
                 ennemies.RemoveAt(i);
             }
         }

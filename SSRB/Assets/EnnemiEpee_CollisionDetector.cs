@@ -27,9 +27,9 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
 
     void Start()
     {
-        playerhealth = player.GetComponent<HealthComponent>();
         particles.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
+        playerhealth = player.GetComponent<HealthComponent>();
         anim = GetComponent<Animator>();
         idle = anim.GetBehaviour<EnnemisEppee_V2>();
         deflectImpact = anim.GetBehaviour<DeflectImpact>();

@@ -3,32 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class JumpAttack_EnnemisEpee : StateMachineBehaviour
+public class FollowPlayer_Animation : StateMachineBehaviour
 {
-    EnnemisEppee_V2 idle;
-    SwordCollision deflect;
-    public int knockback;
     NavMeshAgent agent;
-    Transform parent;
     GameObject player;
-
+    
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         agent = animator.GetComponent<EnnemiEpee_CollisionDetector>().agent;
-        deflect = animator.GetComponentInChildren<SwordCollision>();
-        SwordCollision.damage = 4;
-        SwordCollision.knockback = knockback;
-        idle = animator.GetBehaviour<EnnemisEppee_V2>();
     }
 
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (deflect.asBeenDeflected)
-        {
-            animator.Play("Impact 0");
-            deflect.asBeenDeflected = false;
-        }
+        agent.SetDestination(player.transform.position);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

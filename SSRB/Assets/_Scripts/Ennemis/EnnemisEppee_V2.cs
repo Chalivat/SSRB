@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.AI;
 
 public class EnnemisEppee_V2 : StateMachineBehaviour
 {
@@ -16,8 +17,8 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     public string[] animations;
     public bool isBlocking = false;
     DeflectImpact deflectImpact;
-
-
+    NavMeshAgent agent;
+    
     GameObject player;
     Rigidbody rb;
     Vector3 direction;
@@ -29,6 +30,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.speed = 1;
+        agent = animator.GetComponent<EnnemiEpee_CollisionDetector>().agent;
         deflectImpact = animator.GetBehaviour<DeflectImpact>();
         deflectImpact.isImpacted = false;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -66,8 +68,8 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
 
     void Move(Animator animator)
     {
-        direction = player.transform.position - animator.transform.position;
-        Quaternion newRot = Quaternion.LookRotation(direction);
+        direction = animator.transform.position - player.transform.position;
+        Quaternion newRot = Quaternion.LookRotation(-direction);
         Vector3 nextRot = newRot.eulerAngles;
         nextRot.x = 0;
         animator.transform.rotation = Quaternion.Euler(nextRot);
@@ -77,30 +79,34 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
             /*Debug.Log(Vector3.Distance(animator.transform.position, player.transform.position));
             Debug.Log(isBackward);*/
             //Debug.Log(rb.velocity);
+            agent.SetDestination(player.transform.position + direction.normalized * distanceMin);
 
             if (Vector3.Distance(animator.transform.position, player.transform.position) >= distanceMax)
             {
                 Debug.Log("J'avance");
-                sens = 1;
-                velocity = direction;
+            //    //sens = 1;
+            //    //velocity = direction;
                 sweetspot = false;
+            //    agent.SetDestination(player.transform.position);
             }
             else if (Vector3.Distance(animator.transform.position, player.transform.position) <= distanceMax &&
                 Vector3.Distance(animator.transform.position, player.transform.position) >= distanceMin)
             {
                 Debug.Log("Je suis immobile");
                 sweetspot = true;
-                sens = 1;
-                velocity = Vector3.zero;
+            //    //sens = 1;
+            //    //velocity = Vector3.zero;
+            //    agent.SetDestination(animator.transform.position);
             }
-            else if (Vector3.Distance(animator.transform.position, player.transform.position) <= distanceMin)
-            {
-                Debug.Log("Je recule putain de ta mere");
-                velocity = direction;
-                sens = -5;
-            }
+            //else if (Vector3.Distance(animator.transform.position, player.transform.position) <= distanceMin)
+            //{
+            //    Debug.Log("Je recule putain de ta mere");
+            //    //velocity = direction;
+            //    //sens = -5;
+            //    agent.SetDestination(animator.transform.position - animator.transform.forward);
+            //}
 
-            rb.velocity = velocity.normalized * speed * Time.deltaTime * sens;
+            //rb.velocity = velocity.normalized * speed * Time.deltaTime * sens;
         }
         else
         {

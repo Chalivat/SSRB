@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class EnnemiEpee_CollisionDetector : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public float ejection;
     public float knockback;
     public Slider healthBar;
+    public NavMeshAgent agent;
 
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
@@ -18,6 +20,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     Vector3 direction;
     GameObject player;
     bool asBeenEjected = false;
+    bool isFollowing = true;
 
     void Start()
     {
@@ -32,8 +35,9 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     void Update()
     {
         healthBar.value = health;
+        transform.localPosition = Vector3.zero;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
@@ -41,6 +45,12 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         {
             rb.AddForce(Vector3.up * ejection, ForceMode.Impulse);
             asBeenEjected = false;
+        }
+
+        if (isFollowing)
+        {
+            direction = transform.position - player.transform.position;
+            agent.SetDestination(player.transform.position +direction.normalized);
         }
     }
 
@@ -55,6 +65,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         {
             direction = transform.position - player.transform.position;
             sword.GetComponent<BoxCollider>().enabled = false;
+            agent.velocity = rb.velocity;
             if (!deflectImpact)
             {
                 rb.AddForce(direction * knockback/2, ForceMode.Impulse);
@@ -87,5 +98,14 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public void isBlockingTrue()
     {
         idle.isBlocking = true;
+    }
+    public void isFollowingPlayer()
+    {
+        isFollowing = true;
+    }
+
+    public void isNotFollowing()
+    {
+        isFollowing = false;
     }
 }

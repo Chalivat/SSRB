@@ -83,6 +83,7 @@ public class PlayerAttack : MonoBehaviour
             animShield.Play("ShieldCharge");
             ShieldParticles.Play();
             psMain.startColor = Color.yellow;
+            canDeflect = true;
         }
 
         if (Input.GetButton("Shield"))
@@ -98,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonUp("Shield"))
         {
-            canDeflect = true;
+            
             animShield.Play("shieldUp");
             if (chargingShield >= 1.2)
             {

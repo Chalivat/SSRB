@@ -20,7 +20,7 @@ public class Lock : MonoBehaviour
     
     void Update()
     {
-        
+        cursor.gameObject.SetActive(isLocked);
         for (int i = 0; i < ennemies.Count; i++)
         {
             if (ennemies[i] == null)

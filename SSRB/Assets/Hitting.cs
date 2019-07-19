@@ -11,8 +11,10 @@ public class Hitting : StateMachineBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerAttack = Player.GetComponent<PlayerAttack>();
+
+        animator.gameObject.GetComponent<PlayerCanHit>().cannontHit();
         
-        if (attackNumber == 2)
+        if (attackNumber == 3)
         {
             animator.SetBool("wantToCombo",false);
         }
@@ -24,7 +26,7 @@ public class Hitting : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        if (attackNumber == 2)
+        if (attackNumber == 3)
         {
             Player.transform.position += animator.deltaPosition;
         }
@@ -50,6 +52,8 @@ public class Hitting : StateMachineBehaviour
         animator.gameObject.GetComponent<PlayerCanHit>().canMove();
         playerAttack.attackNumber = 0;
     }
+
+    
 
     
 }

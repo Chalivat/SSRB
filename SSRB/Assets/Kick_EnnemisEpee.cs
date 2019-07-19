@@ -8,6 +8,7 @@ public class Kick_EnnemisEpee : StateMachineBehaviour
     public BoxCollider foot;
     SwordCollision deflect;
     NavMeshAgent agent;
+    public float attackSpeed;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -16,6 +17,7 @@ public class Kick_EnnemisEpee : StateMachineBehaviour
         foot = GameObject.FindGameObjectWithTag("Foot").GetComponent<BoxCollider>();
         foot.enabled = true;
         agent.updateRotation = false;
+        agent.speed = attackSpeed;
     }
 
 

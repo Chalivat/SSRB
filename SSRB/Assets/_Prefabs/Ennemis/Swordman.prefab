@@ -705,8 +705,8 @@ MonoBehaviour:
   agent: {fileID: 0}
   particles: {fileID: 7398912120909700800}
   animationsCac:
-  - 
-  - 
+  - Kick
+  - Slash
   sword: {fileID: 7841377715603439975}
 --- !u!1 &2568894366166139231
 GameObject:

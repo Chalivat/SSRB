@@ -33,18 +33,17 @@ public class HealthComponent : MonoBehaviour
     public void PlayerGetDeflected()
     {
         anim.Play("Knocked");
-        CameraShake.FreezeTime();
-        CameraShake.ShakeCamera(0.1f, 0.1f);
+        //CameraShake.ShakeCamera(0.1f, 0.1f);
     }
 
     public void PlayerDeflected()
     {
-
+        CameraShake.ShakeCamera(0.1f,0.1f);
     }
 
     public void PlayerHit()
     {
-
+        CameraShake.FreezeTime(2);
     }
 
     

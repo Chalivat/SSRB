@@ -56,16 +56,17 @@ public class CameraShake : MonoBehaviour
         Camera.main.gameObject.GetComponent<CameraShake>().shakeAmount = amount;
     }
 
-    public static void FreezeTime()
+    public static void FreezeTime(int frame)
     {
-        Camera.main.gameObject.GetComponent<CameraShake>().TimeStop();
+        Camera.main.gameObject.GetComponent<CameraShake>().TimeStop(frame);
     }
-    private int frameCount;
+    private int frameCount = 5;
      
-        void TimeStop()
+        void TimeStop(int frame)
         {
             Time.timeScale = 0.1f;
-            frameCount = 0;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            frameCount = frame;
         }
 
         void TimeGo()
@@ -74,7 +75,12 @@ public class CameraShake : MonoBehaviour
             {
                 frameCount++;
             }
-            else Time.timeScale = 1;
+            else
+            {
+                Time.timeScale = 1;
+                Time.fixedDeltaTime = 0.02f;
+            }
+                    
         }
     
 }

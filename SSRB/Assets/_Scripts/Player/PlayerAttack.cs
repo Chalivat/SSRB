@@ -34,36 +34,31 @@ public class PlayerAttack : MonoBehaviour
 
         //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TimeStop();
-        }
 
-        TimeGo();
-    }
 
-    void hit()
-    {
-        if (Input.GetButtonDown("Hit"))
+        void hit()
         {
-            if (attackNumber == 0)
+            if (Input.GetButtonDown("Hit"))
             {
-                Player.Play("Hit");
+                if (attackNumber == 0)
+                {
+                    Player.Play("Hit");
+                }
+
             }
 
+            if (Input.GetButton("Hit"))
+            {
+
+            }
+
+            if (Input.GetButtonUp("Hit"))
+            {
+
+            }
+
+
         }
-
-        if (Input.GetButton("Hit"))
-        {
-
-        }
-
-        if (Input.GetButtonUp("Hit"))
-        {
-
-        }
-
-
     }
 
     public int index;
@@ -119,22 +114,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+    
 
-
-    private int frameCount;
-
-    void TimeStop()
-    {
-        Time.timeScale = 0.1f;
-        frameCount = 0;
-    }
-
-    void TimeGo()
-    {
-        if (frameCount < 5)
-        {
-            frameCount++;
-        }
-        else Time.timeScale = 1;
-    }
+    
 }

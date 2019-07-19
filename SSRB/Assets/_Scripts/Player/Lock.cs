@@ -12,10 +12,14 @@ public class Lock : MonoBehaviour
     private int index;
     private bool lastInput;
     private bool isLocked;
+    private Camera cam;
+    private CameraShake cameraShake;
     void Start()
     {
         ennemies = GameObject.FindGameObjectsWithTag("Swordman").ToList();
         ennemies = new List<GameObject>(ennemies.Concat(GameObject.FindGameObjectsWithTag("Distance").ToList()));
+        cam = Camera.main;
+        cameraShake = cam.gameObject.GetComponent<CameraShake>();
     }
     
     void Update()
@@ -42,13 +46,25 @@ public class Lock : MonoBehaviour
         {
             ChangeSelection();
         }
+        else
+        {
+            cursor.gameObject.SetActive(false);
+        }
         if (ennemies.Count != 0 && isLocked)
         {
             Target = ennemies[index];
             cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position + Vector3.up);
-            
+            cam.gameObject.transform.localRotation = Quaternion.Euler(-10,0,0);
+            cam.fieldOfView = 50;
+            cameraShake.offset = new Vector3(1,-2,0);
         }
-        else Target = null;
+        else
+        {
+            cam.gameObject.transform.localRotation = Quaternion.Euler(10, 0, 0);
+            cam.fieldOfView = 60;
+            cameraShake.offset = new Vector3(0, 0, 0);
+            Target = null;
+        }
     }
 
     void ChangeSelection()

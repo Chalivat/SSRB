@@ -8,6 +8,7 @@ public class CameraShake : MonoBehaviour
     // if null.
     public Transform camTransform;
 
+    public Vector3 offset;
     // How long the object should shake for.
     public float shakeDuration = 0f;
     float initialDuration;
@@ -46,7 +47,7 @@ public class CameraShake : MonoBehaviour
         else
         {
             shakeDuration = initialDuration;
-            camTransform.localPosition = originalPos;
+            camTransform.localPosition = originalPos + offset;
         }
     }
 

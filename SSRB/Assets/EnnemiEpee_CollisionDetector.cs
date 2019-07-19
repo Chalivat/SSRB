@@ -13,6 +13,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject particles;
     public string[] animationsCac;
+    HealthComponent playerhealth;
 
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
@@ -26,6 +27,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
 
     void Start()
     {
+        playerhealth = player.GetComponent<HealthComponent>();
         particles.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
@@ -82,6 +84,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         }
         else if (other.CompareTag("Sabre") && idle.isBlocking)
         {
+            playerhealth.PlayerGetDeflected();
             anim.Play(animationsCac[Random.Range(0, animationsCac.Length)]);
         }
     }

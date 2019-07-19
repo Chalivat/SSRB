@@ -54,9 +54,10 @@ public class Lock : MonoBehaviour
         {
             Target = ennemies[index];
             cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position + Vector3.up);
-            cam.gameObject.transform.localRotation = Quaternion.Lerp(cam.gameObject.transform.localRotation, Quaternion.Euler(-10, 0, 0), 0.1f * Time.deltaTime);
+            cam.gameObject.transform.localRotation = Quaternion.Lerp(cam.gameObject.transform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f * Time.deltaTime);
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 50, 1f * Time.deltaTime);
             cameraShake.offset = Vector3.Lerp(cameraShake.offset,new Vector3(1,-2,0), 1f * Time.deltaTime);
+            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation,Quaternion.LookRotation(Target.transform.position - cam.transform.position),0.1f * Time.deltaTime);
         }
         else
         {

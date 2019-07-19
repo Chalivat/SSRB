@@ -1086,6 +1086,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6327148077356981168, guid: 48c317fb3cbc14f4db4569ccf239733c,
+        type: 3}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c317fb3cbc14f4db4569ccf239733c, type: 3}
 --- !u!1001 &1472231133
@@ -2413,6 +2418,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6370218241598940453, guid: c3e2ee586ef2ee44885b22bf518d5e49,
+        type: 3}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3337815334060041257, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -3473,11 +3483,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6370218241598940453, guid: c3e2ee586ef2ee44885b22bf518d5e49,
-        type: 3}
-      propertyPath: health
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3e2ee586ef2ee44885b22bf518d5e49, type: 3}
 --- !u!1 &1919734869
@@ -3838,6 +3843,21 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 1548098910}
+    - target: {fileID: 5120038388900356020, guid: 59cdf85215195fc4c972a82f166f1aaf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06975647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120038388900356020, guid: 59cdf85215195fc4c972a82f166f1aaf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9975641
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120038388900356020, guid: 59cdf85215195fc4c972a82f166f1aaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59cdf85215195fc4c972a82f166f1aaf, type: 3}
 --- !u!1001 &7253992763398654610
@@ -4704,6 +4724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxDeflectTime
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253992764678313970, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
+        type: 3}
+      propertyPath: MaxCoyoteHit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 448351721, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
       propertyPath: m_Enabled

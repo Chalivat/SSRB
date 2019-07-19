@@ -14,10 +14,8 @@ public class Hitting : StateMachineBehaviour
 
         animator.gameObject.GetComponent<PlayerCanHit>().cannontHit();
         
-        if (attackNumber == 3)
-        {
             animator.SetBool("wantToCombo",false);
-        }
+        
             playerAttack.attackNumber = attackNumber;
         
     }
@@ -35,15 +33,16 @@ public class Hitting : StateMachineBehaviour
         {
             animator.SetBool("wantToCombo", false);
             animator.Play("SpinHit");
+            Debug.Log("grejoghzerioghioezgh");
         }
 
-        if (attackNumber == 1)
+        if (playerAttack.wantToHit)
         {
-            if (Input.GetButtonDown("Hit"))
-            {
-                animator.SetBool("wantToCombo", true);
-            }
+            Debug.Log("ghrehgehrguherugheruhg" + Time.frameCount);
+            animator.SetBool("wantToCombo", true);
+            //animator.Play("Idle");
         }
+        else animator.SetBool("wantToCombo", false);
     }
 
     
@@ -52,6 +51,15 @@ public class Hitting : StateMachineBehaviour
         animator.gameObject.GetComponent<PlayerCanHit>().canMove();
         playerAttack.attackNumber = 0;
         animator.gameObject.GetComponent<PlayerCanHit>().cannontHit();
+        
+        if (playerAttack.wantToHit)
+        {
+            animator.SetBool("wantToCombo", true);
+            if (attackNumber == 2)
+            {
+                animator.Play("SpinHit");
+            }
+        }
     }
 
     

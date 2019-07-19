@@ -35,9 +35,9 @@ public class CharacterController : MonoBehaviour
         nextRot.z = 0;
         newRot = Quaternion.Euler(nextRot);
         direction = newRot * direction;
-        if (direction.magnitude >= .5f)
+        if (direction.magnitude >= .3f)
         {
-            rb.velocity = direction * speed;
+            rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, direction.z* speed);
             if (Lock.Target)
             {
                 Player.SetBool("isStrafing", true);

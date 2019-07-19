@@ -14,6 +14,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public GameObject particles;
     public string[] animationsCac;
     HealthComponent playerhealth;
+    public SwordCollision swordCollision;
 
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
@@ -57,6 +58,10 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             direction = transform.position - player.transform.position;
             agent.SetDestination(player.transform.position +direction.normalized);
         }
+        else if(!isFollowing && swordCollision.asBeenDeflected)
+        {
+            agent.SetDestination(transform.position);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,6 +73,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
 
         if (other.CompareTag("Sabre") && !idle.isBlocking)
         {
+            playerhealth.PlayerHit();
             direction = transform.position - player.transform.position;
             sword.GetComponent<BoxCollider>().enabled = false;
             agent.velocity = rb.velocity;

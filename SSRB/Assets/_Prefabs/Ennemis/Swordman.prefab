@@ -668,7 +668,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -707,6 +707,7 @@ MonoBehaviour:
   animationsCac:
   - Kick
   - Slash
+  swordCollision: {fileID: 701047658866101171}
   sword: {fileID: 7841377715603439975}
 --- !u!1 &2568894366166139231
 GameObject:
@@ -3014,7 +3015,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8567534774058223977}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

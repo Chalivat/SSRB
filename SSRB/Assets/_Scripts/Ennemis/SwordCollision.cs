@@ -35,6 +35,7 @@ public class SwordCollision : MonoBehaviour
     {
         if (other.CompareTag("Player") && PlayerAttack.canDeflect && !Block)
         {
+            playerVie.PlayerDeflected();
             asBeenDeflected = true;
             Block = true;
         }

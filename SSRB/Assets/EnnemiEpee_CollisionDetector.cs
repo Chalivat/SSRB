@@ -66,7 +66,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             direction = transform.position - player.transform.position;
             sword.GetComponent<BoxCollider>().enabled = false;
             agent.velocity = rb.velocity;
-            if (!deflectImpact)
+            if (!deflectImpact.isImpacted)
             {
                 rb.AddForce(direction * knockback/2, ForceMode.Impulse);
                 anim.Play("Impact");

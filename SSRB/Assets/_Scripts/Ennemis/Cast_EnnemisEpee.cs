@@ -13,7 +13,7 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     {
         deflect = animator.GetComponentInChildren<SwordCollision>();
         deflectImpact = animator.GetBehaviour<DeflectImpact>();
-        deflectImpact.isImpacted = true;
+        deflectImpact.isImpacted = false;
         SwordCollision.damage = 3;
         SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();

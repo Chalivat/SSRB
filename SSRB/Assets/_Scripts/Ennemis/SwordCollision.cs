@@ -41,7 +41,7 @@ public class SwordCollision : MonoBehaviour
         else if(other.CompareTag("Player") && !PlayerAttack.canDeflect)
         {
             Vector3 direction = transform.position - player.transform.position;
-            playerVie.vie -= damage;
+            playerVie.PlayerGetHit(damage);
             playerVie.GetComponent<Rigidbody>().AddForce(-direction * knockback, ForceMode.Impulse);
         }
     }

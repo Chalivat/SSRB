@@ -12,6 +12,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public Slider healthBar;
     public NavMeshAgent agent;
     public GameObject particles;
+    public string[] animationsCac;
 
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
@@ -81,8 +82,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         }
         else if (other.CompareTag("Sabre") && idle.isBlocking)
         {
-            direction = transform.position - player.transform.position;
-            rb.AddForce(direction * knockback/2, ForceMode.Impulse);
+            anim.Play(animationsCac[Random.Range(0, animationsCac.Length)]);
         }
     }
 

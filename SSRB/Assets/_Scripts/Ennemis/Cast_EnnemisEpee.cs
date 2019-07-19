@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Cast_EnnemisEpee : StateMachineBehaviour
 {
@@ -8,9 +9,12 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     SwordCollision deflect;
     DeflectImpact deflectImpact;
     public int knockback;
+    NavMeshAgent agent;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        agent = animator.GetComponent<EnnemiEpee_CollisionDetector>().agent;
+        agent.updateRotation = false;
         deflect = animator.GetComponentInChildren<SwordCollision>();
         deflectImpact = animator.GetBehaviour<DeflectImpact>();
         deflectImpact.isImpacted = false;
@@ -18,6 +22,7 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
         SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         idle.isBlocking = false;
+        agent.speed = 3.5f;
         //sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
     }
 

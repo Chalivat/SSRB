@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Kick_EnnemisEpee : StateMachineBehaviour
 {
     public BoxCollider foot;
     SwordCollision deflect;
+    NavMeshAgent agent;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        agent = animator.GetComponent<EnnemiEpee_CollisionDetector>().agent;
         deflect = animator.GetComponentInChildren<SwordCollision>();
         foot = GameObject.FindGameObjectWithTag("Foot").GetComponent<BoxCollider>();
         foot.enabled = true;
+        agent.updateRotation = false;
     }
 
 

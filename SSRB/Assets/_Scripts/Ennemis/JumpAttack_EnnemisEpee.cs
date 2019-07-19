@@ -19,6 +19,8 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
         SwordCollision.damage = 4;
         SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
+        agent.updateRotation = false;
+        agent.speed = 3.5f;
     }
 
 

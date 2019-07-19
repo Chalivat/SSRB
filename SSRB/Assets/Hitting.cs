@@ -51,6 +51,7 @@ public class Hitting : StateMachineBehaviour
     {
         animator.gameObject.GetComponent<PlayerCanHit>().canMove();
         playerAttack.attackNumber = 0;
+        animator.gameObject.GetComponent<PlayerCanHit>().cannontHit();
     }
 
     

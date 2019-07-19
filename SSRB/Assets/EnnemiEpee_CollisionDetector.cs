@@ -76,12 +76,16 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public void NoCollider()
     {
         sword.enabled = false;
-        idle.isBlocking = true;
     }
 
     public void YesCollider()
     {
         sword.enabled = true;
         idle.isBlocking = false;
+    }
+
+    public void isBlockingTrue()
+    {
+        idle.isBlocking = true;
     }
 }

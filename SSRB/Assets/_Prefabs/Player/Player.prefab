@@ -5427,6 +5427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vie: 10
   healthBar: {fileID: 0}
+  anim: {fileID: 273057730485623438}
 --- !u!114 &753573457
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     public float distanceMin;
     public float distanceMax;
     public bool onFloor = false;
-    public BoxCollider sword;
     public BoxCollider foot;
     public Animator anim;
     public float minTime;
@@ -35,9 +34,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb = animator.GetComponent<Rigidbody>();
         anim = animator;
-        sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
         foot = GameObject.FindGameObjectWithTag("Foot").GetComponent<BoxCollider>();
-        sword.enabled = false;
         foot.enabled = false;
         time = Random.Range(minTime, maxTime);
         isBlocking = true;

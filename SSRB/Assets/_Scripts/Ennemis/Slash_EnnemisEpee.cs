@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Slash_EnnemisEpee : StateMachineBehaviour
 {
-    public BoxCollider sword;
     EnnemisEppee_V2 idle;
     SwordCollision deflect;
-    public float initialtimebeforeHit;
-    float timebeforeHit;
     public int knockback;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,19 +15,10 @@ public class Slash_EnnemisEpee : StateMachineBehaviour
         SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         idle.isBlocking = false;
-        sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
-        timebeforeHit = initialtimebeforeHit;
     }
     
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timebeforeHit -= Time.deltaTime;
-        if (timebeforeHit <= 0)
-        {
-            sword.enabled = true;
-            idle.isBlocking = false;
-        }
-
         if (deflect.asBeenDeflected)
         {
             animator.Play("Impact 0");

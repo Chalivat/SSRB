@@ -6,15 +6,18 @@ public class Hitting : StateMachineBehaviour
 {
     public int attackNumber;
     private GameObject Player;
+    private PlayerAttack playerAttack;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        
+        playerAttack = Player.GetComponent<PlayerAttack>();
         
         if (attackNumber == 2)
         {
             animator.SetBool("wantToCombo",false);
         }
+            playerAttack.attackNumber = attackNumber;
+        
     }
 
    
@@ -45,6 +48,7 @@ public class Hitting : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.gameObject.GetComponent<PlayerCanHit>().canMove();
+        playerAttack.attackNumber = 0;
     }
 
     

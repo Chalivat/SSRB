@@ -23,7 +23,7 @@ public class RotateCamera : MonoBehaviour
     {
         if (Lock.Target)
         {
-            Quaternion newRot = Quaternion.LookRotation(Lock.Target.transform.position - transform.position);
+            Quaternion newRot = Quaternion.LookRotation(Lock.Target.transform.position + Vector3.up - transform.position);
             transform.rotation = Quaternion.Lerp(transform.rotation,newRot,autoAimSpeed * Time.deltaTime);
         }
         else

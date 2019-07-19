@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     public static bool canDeflect;
 
-    public float freezeTime;
+    public int attackNumber;
 
     void Start()
     {
@@ -30,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
     {
         hit();
         shieldUp();
+        Debug.Log("attackNumber : " + attackNumber);
 
         //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
 
@@ -45,8 +46,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Hit"))
         {
-            Player.Play("Hit");
-            
+            if (attackNumber == 0)
+            {
+                Player.Play("Hit");
+            }
+
         }
 
         if (Input.GetButton("Hit"))

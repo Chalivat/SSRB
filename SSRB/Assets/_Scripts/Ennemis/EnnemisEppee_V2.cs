@@ -16,6 +16,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     public float maxTime;
     public string[] animations;
     public bool isBlocking = false;
+    public bool asAttacked = false;
     DeflectImpact deflectImpact;
     NavMeshAgent agent;
     
@@ -76,37 +77,21 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
 
         if (onFloor)
         {
-            /*Debug.Log(Vector3.Distance(animator.transform.position, player.transform.position));
-            Debug.Log(isBackward);*/
-            //Debug.Log(rb.velocity);
             agent.SetDestination(player.transform.position + direction.normalized * distanceMin);
 
-            if (Vector3.Distance(animator.transform.position, player.transform.position) >= distanceMax)
+            if (Vector3.Distance(animator.transform.position, player.transform.position) > distanceMax)
             {
                 Debug.Log("J'avance");
-            //    //sens = 1;
-            //    //velocity = direction;
                 sweetspot = false;
-            //    agent.SetDestination(player.transform.position);
             }
-            else if (Vector3.Distance(animator.transform.position, player.transform.position) <= distanceMax &&
-                Vector3.Distance(animator.transform.position, player.transform.position) >= distanceMin)
+            else if (Vector3.Distance(animator.transform.position, player.transform.position) >= distanceMin &&
+                Vector3.Distance(animator.transform.position, player.transform.position) <= distanceMax)
             {
                 Debug.Log("Je suis immobile");
                 sweetspot = true;
-            //    //sens = 1;
-            //    //velocity = Vector3.zero;
-            //    agent.SetDestination(animator.transform.position);
+                asAttacked = false;
             }
-            //else if (Vector3.Distance(animator.transform.position, player.transform.position) <= distanceMin)
-            //{
-            //    Debug.Log("Je recule putain de ta mere");
-            //    //velocity = direction;
-            //    //sens = -5;
-            //    agent.SetDestination(animator.transform.position - animator.transform.forward);
-            //}
-
-            //rb.velocity = velocity.normalized * speed * Time.deltaTime * sens;
+            
         }
         else
         {
@@ -134,7 +119,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
 
     void Attack()
     {
-        if (sweetspot)
+        if (sweetspot && !asAttacked)
         {
             time -= Time.deltaTime;
             if(time <= 0)

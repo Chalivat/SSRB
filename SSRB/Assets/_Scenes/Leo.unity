@@ -1047,6 +1047,10 @@ PrefabInstance:
       propertyPath: maxDeflectTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 448351721, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
 --- !u!4 &1804992292 stripped

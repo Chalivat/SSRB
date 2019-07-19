@@ -881,8 +881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  distanceMin: 2.5
-  distanceMax: 3
+  distanceMin: 5
+  distanceMax: 6
   onFloor: 0
   foot: {fileID: 0}
   anim: {fileID: 0}

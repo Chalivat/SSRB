@@ -27,6 +27,13 @@ public class HealthComponent : MonoBehaviour
         vie -= damage;
         healthBar.value = vie;
         anim.Play("Knocked");
+        CameraShake.ShakeCamera(0.2f,0.2f);
+        CameraShake.FreezeTime();
+    }
+
+    public void PlayerGetDeflected()
+    {
+        anim.Play("Knocked");
     }
 
     

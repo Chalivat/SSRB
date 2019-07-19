@@ -36,6 +36,7 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
+        TimeGo();
         if (shakeDuration > 0)
         {
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
@@ -49,6 +50,32 @@ public class CameraShake : MonoBehaviour
         }
     }
 
+    public static void ShakeCamera(float duration, float amount)
+    {
+        Camera.main.gameObject.GetComponent<CameraShake>().shakeDuration = duration;
+        Camera.main.gameObject.GetComponent<CameraShake>().shakeAmount = amount;
+    }
+
+    public static void FreezeTime()
+    {
+        Camera.main.gameObject.GetComponent<CameraShake>().TimeStop();
+    }
+    private int frameCount;
+     
+        void TimeStop()
+        {
+            Time.timeScale = 0.1f;
+            frameCount = 0;
+        }
+
+        void TimeGo()
+        {
+            if (frameCount < 5)
+            {
+                frameCount++;
+            }
+            else Time.timeScale = 1;
+        }
     
 }
 

@@ -137,7 +137,4 @@ public class PlayerAttack : MonoBehaviour
         }
         else Time.timeScale = 1;
     }
-
-    
-    
 }

@@ -11,6 +11,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public float knockback;
     public Slider healthBar;
     public NavMeshAgent agent;
+    public GameObject particles;
 
     public BoxCollider sword;
     EnnemisEppee_V2 idle;
@@ -24,6 +25,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
 
     void Start()
     {
+        particles.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         idle = anim.GetBehaviour<EnnemisEppee_V2>();
@@ -87,12 +89,14 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public void NoCollider()
     {
         sword.enabled = false;
+        particles.SetActive(false);
     }
 
     public void YesCollider()
     {
         sword.enabled = true;
         idle.isBlocking = false;
+        particles.SetActive(true);
     }
 
     public void isBlockingTrue()

@@ -11,6 +11,7 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
     NavMeshAgent agent;
     Transform parent;
     GameObject player;
+    public float attackSpeed;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -20,7 +21,7 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
         SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         agent.updateRotation = false;
-        agent.speed = 3.5f;
+        agent.speed = attackSpeed;
     }
 
 

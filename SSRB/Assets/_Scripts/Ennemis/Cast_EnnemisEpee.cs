@@ -10,6 +10,7 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     DeflectImpact deflectImpact;
     public int knockback;
     NavMeshAgent agent;
+    public float attackSpeed;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -22,7 +23,7 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
         SwordCollision.knockback = knockback;
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         idle.isBlocking = false;
-        agent.speed = 3.5f;
+        agent.speed = attackSpeed;
         //sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<BoxCollider>();
     }
 

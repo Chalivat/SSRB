@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 8
+  attackSpeed: 5
 --- !u!1101 &-6527231839948043923
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -262,7 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95ad1defede7345b4a531ca4e9de4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: -3
+  knockback: -5
+  attackSpeed: 6
 --- !u!1101 &-3647314400112881087
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -372,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 5
+  attackSpeed: 4
 --- !u!1101 &-663845607877122678
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -440,7 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7737403e74c814184c09ed7a166005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 8
+  knockback: 5
+  attackSpeed: 500
 --- !u!114 &372393603644946918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,7 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95ad1defede7345b4a531ca4e9de4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: -3
+  knockback: -5
+  attackSpeed: 6
 --- !u!1102 &2865604217111511629
 AnimatorState:
   serializedVersion: 5
@@ -610,6 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 15
+  attackSpeed: 3.5
 --- !u!114 &4337164995218765782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -623,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 40
+  attackSpeed: 6
 --- !u!1102 &4982373338138983459
 AnimatorState:
   serializedVersion: 5

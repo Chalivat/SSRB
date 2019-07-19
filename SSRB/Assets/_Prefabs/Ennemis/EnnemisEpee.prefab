@@ -69,32 +69,32 @@ PrefabInstance:
     - target: {fileID: 3001824739597715119, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.885658
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3001824739597715119, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.916492
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3001824739597715119, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.071314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3001824739597715119, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3001824739597715119, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3001824739597715119, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3001824739597715119, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
@@ -121,16 +121,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5956865926155834058, guid: c3e2ee586ef2ee44885b22bf518d5e49,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6370218241598940453, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: agent
       value: 
       objectReference: {fileID: 4493358678775970865}
+    - target: {fileID: 5956865926155834058, guid: c3e2ee586ef2ee44885b22bf518d5e49,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3e2ee586ef2ee44885b22bf518d5e49, type: 3}
 --- !u!4 &2738641196181944378 stripped

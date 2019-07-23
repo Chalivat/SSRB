@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5290724656229946802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2214856, y: -16.895493, z: 10.497601}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2738641196181944378}
@@ -42,7 +42,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -126,6 +126,11 @@ PrefabInstance:
       propertyPath: agent
       value: 
       objectReference: {fileID: 4493358678775970865}
+    - target: {fileID: 6370218241598940453, guid: c3e2ee586ef2ee44885b22bf518d5e49,
+        type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5956865926155834058, guid: c3e2ee586ef2ee44885b22bf518d5e49,
         type: 3}
       propertyPath: m_AnchorMax.y

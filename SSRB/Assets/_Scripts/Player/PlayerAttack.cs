@@ -19,6 +19,12 @@ public class PlayerAttack : MonoBehaviour
 
     public int attackNumber;
 
+    public bool wantToHit;
+    public float MaxCoyoteHit;
+    float time;
+
+    public bool isHit;
+
     void Start()
     {
         psMain = ShieldParticles.main;
@@ -33,33 +39,42 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("attackNumber : " + attackNumber);
 
         //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
+        hit();
+    }
 
-
-
-        void hit()
+    void hit()
         {
             if (Input.GetButtonDown("Hit"))
             {
                 if (attackNumber == 0)
                 {
-                    Player.Play("Hit");
-                }
+                   Player.SetInteger("AttackNumber",0);
+                   Player.Play("Hit");
+                }   
+                else Player.SetInteger("AttackNumber",1);
 
+                wantToHit = true;
             }
 
-            if (Input.GetButton("Hit"))
+            if (Input.GetAxisRaw("BigHit") >0)
             {
-
+                Player.Play("SpinHit");
             }
 
-            if (Input.GetButtonUp("Hit"))
+        if (wantToHit)
+        {
+            time += Time.deltaTime;
+            if (time >= MaxCoyoteHit)
             {
-
+                time = 0;
+                wantToHit = false;
+                Player.SetInteger("AttackNumber", 0);
+                
             }
-
+        }
 
         }
-    }
+   
 
     public int index;
     private float timeSinceLastAttack;
@@ -94,7 +109,6 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonUp("Shield"))
         {
-            
             animShield.Play("shieldUp");
             if (chargingShield >= 1.2)
             {

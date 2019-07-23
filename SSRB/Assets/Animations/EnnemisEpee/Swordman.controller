@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7737403e74c814184c09ed7a166005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 8
+  knockback: 20
   attackSpeed: 5
 --- !u!1101 &-6527231839948043923
 AnimatorStateTransition:
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95ad1defede7345b4a531ca4e9de4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 5
+  knockback: 15
   attackSpeed: 4
 --- !u!1101 &-663845607877122678
 AnimatorStateTransition:
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3427fa6b68808439dfc1ed5c284f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 15
+  knockback: 25
   attackSpeed: 1
 --- !u!114 &4337164995218765782
 MonoBehaviour:
@@ -900,8 +900,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  distanceMin: 5
-  distanceMax: 5.5
+  distanceMin: 4.5
+  distanceMax: 5
   onFloor: 0
   foot: {fileID: 0}
   anim: {fileID: 0}

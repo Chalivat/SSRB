@@ -14,12 +14,16 @@ public class Lock : MonoBehaviour
     private bool isLocked;
     private Camera cam;
     private CameraShake cameraShake;
+
+    private Quaternion initialRot;
     void Start()
     {
         ennemies = GameObject.FindGameObjectsWithTag("Swordman").ToList();
         ennemies = new List<GameObject>(ennemies.Concat(GameObject.FindGameObjectsWithTag("Distance").ToList()));
         cam = Camera.main;
         cameraShake = cam.gameObject.GetComponent<CameraShake>();
+        initialRot = cam.transform.localRotation;
+        
     }
     
     void Update()
@@ -54,16 +58,17 @@ public class Lock : MonoBehaviour
         {
             Target = ennemies[index];
             cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position + Vector3.up);
-            cam.gameObject.transform.localRotation = Quaternion.Lerp(cam.gameObject.transform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f * Time.deltaTime);
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 50, 1f * Time.deltaTime);
-            cameraShake.offset = Vector3.Lerp(cameraShake.offset,new Vector3(1,-2,0), 1f * Time.deltaTime);
-            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation,Quaternion.LookRotation(Target.transform.position - cam.transform.position),0.1f * Time.deltaTime);
+            cam.gameObject.transform.localRotation = Quaternion.Lerp(cam.gameObject.transform.localRotation, Quaternion.Euler(-10, ChooseSide() * 100, 0), 0.01f * Time.deltaTime);
+            //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 50, .1f * Time.deltaTime);
+            cameraShake.offset = Vector3.Lerp(cameraShake.offset,new Vector3(-ChooseSide(),-1f,1f), 1f * Time.deltaTime);
+            //cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation,Quaternion.LookRotation(Target.transform.position - cam.transform.position),0.01f * Time.deltaTime);
         }
         else
         {
-            cam.gameObject.transform.localRotation = Quaternion.Lerp(cam.gameObject.transform.localRotation, Quaternion.Euler(10, 0, 0),0.1f * Time.deltaTime);
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView,60,1f * Time.deltaTime);
-            cameraShake.offset = Vector3.Lerp(cameraShake.offset, new Vector3(0, 0, 0), 1f * Time.deltaTime);
+            cam.gameObject.transform.localRotation = Quaternion.Lerp(cam.gameObject.transform.localRotation, Quaternion.Euler(10, 0, 0),0.01f * Time.deltaTime);
+            //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView,60,.1f * Time.deltaTime);
+            cameraShake.offset = Vector3.Lerp(cameraShake.offset, new Vector3(0, 0, -3f), 1f * Time.deltaTime);
+            //cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, initialRot, 0.1f * Time.deltaTime);
             Target = null;
         }
     }
@@ -97,6 +102,17 @@ public class Lock : MonoBehaviour
         {
             lastInput = false;
         }
+    }
+
+    private float sideOffset = 2f;
+    float ChooseSide()
+    {
+        return Input.GetAxisRaw("Strafe") * sideOffset;
+    }
+
+    void Sorting()
+    {
+
     }
 
     

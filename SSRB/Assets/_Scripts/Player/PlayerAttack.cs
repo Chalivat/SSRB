@@ -23,6 +23,8 @@ public class PlayerAttack : MonoBehaviour
     public float MaxCoyoteHit;
     float time;
 
+    public bool isHit;
+
     void Start()
     {
         psMain = ShieldParticles.main;
@@ -44,11 +46,19 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetButtonDown("Hit"))
             {
-            if (attackNumber == 0)
-            {
+                if (attackNumber == 0)
+                {
+                   Player.SetInteger("AttackNumber",0);
                    Player.Play("Hit");
+                }   
+                else Player.SetInteger("AttackNumber",1);
+
+                wantToHit = true;
             }
-            wantToHit = true;
+
+            if (Input.GetAxisRaw("BigHit") >0)
+            {
+                Player.Play("SpinHit");
             }
 
         if (wantToHit)
@@ -58,6 +68,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 time = 0;
                 wantToHit = false;
+                Player.SetInteger("AttackNumber", 0);
+                
             }
         }
 
@@ -97,7 +109,6 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonUp("Shield"))
         {
-            
             animShield.Play("shieldUp");
             if (chargingShield >= 1.2)
             {

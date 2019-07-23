@@ -7,6 +7,7 @@ public class Hitting : StateMachineBehaviour
     public int attackNumber;
     private GameObject Player;
     private PlayerAttack playerAttack;
+    private bool isHit;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -32,7 +33,6 @@ public class Hitting : StateMachineBehaviour
         if (attackNumber == 1 && stateInfo.normalizedTime >= stateInfo.length && animator.GetBool("wantToCombo"))
         {
             animator.SetBool("wantToCombo", false);
-            animator.Play("SpinHit");
             Debug.Log("grejoghzerioghioezgh");
         }
 
@@ -54,11 +54,12 @@ public class Hitting : StateMachineBehaviour
         
         if (playerAttack.wantToHit)
         {
-            animator.SetBool("wantToCombo", true);
-            if (attackNumber == 2)
+            if (this.attackNumber == 0)
             {
-                animator.Play("SpinHit");
+                animator.Play("HitLeft");
             }
+            else animator.Play("HIt");
+            animator.SetBool("wantToCombo", true);
         }
     }
 

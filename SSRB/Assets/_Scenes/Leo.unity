@@ -1512,6 +1512,11 @@ PrefabInstance:
       propertyPath: maxDeflectTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7253992764678313970, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
+        type: 3}
+      propertyPath: MaxCoyoteHit
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 448351721, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
       propertyPath: m_Enabled
       value: 0

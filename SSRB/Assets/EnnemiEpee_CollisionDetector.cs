@@ -25,6 +25,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     GameObject player;
     bool asBeenEjected = false;
     bool isFollowing = true;
+    int CounterRandom;
 
     void Start()
     {
@@ -91,7 +92,12 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         else if (other.CompareTag("Sabre") && idle.isBlocking)
         {
             playerhealth.PlayerGetDeflected();
-            anim.Play(animationsCac[Random.Range(0, animationsCac.Length)]);
+            CounterRandom = Random.Range(1, 3);
+
+            if(CounterRandom == 2)
+            {
+                anim.Play(animationsCac[Random.Range(0, animationsCac.Length)]);
+            }
         }
     }
 

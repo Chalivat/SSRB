@@ -17,6 +17,7 @@ public class TrashMob_Collisions : MonoBehaviour
     public Slider slider;
 
     public int health;
+    int randomRotation;
 
     void Start()
     {
@@ -35,13 +36,16 @@ public class TrashMob_Collisions : MonoBehaviour
 
         if (isFollowing)
         {
-            if (isFollowing)
-            {
-                direction = transform.position - player.transform.position;
-                agent.SetDestination(player.transform.position + direction.normalized * 0.5f);
-            }
+            Debug.Log("TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            direction = transform.position - player.transform.position;
+            Quaternion newRot = Quaternion.LookRotation(-direction);
+            Vector3 nextRot = newRot.eulerAngles;
+            nextRot.x = 0;
+            transform.rotation = Quaternion.Euler(nextRot);
+            
+            agent.SetDestination(player.transform.position);
         }
-        else
+        else if(!isHit && !isFollowing)
         {
             agent.SetDestination(transform.position);
         }
@@ -51,7 +55,7 @@ public class TrashMob_Collisions : MonoBehaviour
             direction = transform.position - player.transform.position;
             agent.SetDestination(player.transform.position + (direction.normalized * 3));
         }
-        else
+        else if (!isHit && !isFollowing)
         {
             agent.SetDestination(transform.position);
         }

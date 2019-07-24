@@ -10,6 +10,7 @@ public class AnimationNoTurn : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<TrashMob_Collisions>().agent;
+        agent.speed = 4;
         agent.updateRotation = false;
     }
 

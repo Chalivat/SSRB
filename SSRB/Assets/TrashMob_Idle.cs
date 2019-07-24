@@ -26,6 +26,7 @@ public class TrashMob_Idle : StateMachineBehaviour
     {
         agent = animator.GetComponent<TrashMob_Collisions>().agent;
         player = GameObject.FindGameObjectWithTag("Player");
+        agent.speed = 4;
     }
 
 
@@ -38,9 +39,10 @@ public class TrashMob_Idle : StateMachineBehaviour
         if (asFriendDetected)
         {
             rotateTime += Time.deltaTime;
+            int rotateDirection = Random.Range(1, 3);
             if (rotateTime <= 1)
             {
-                agent.Move(animator.transform.right * 0.1f);
+                    agent.Move(animator.transform.right * 0.1f);
             }
             else
             {

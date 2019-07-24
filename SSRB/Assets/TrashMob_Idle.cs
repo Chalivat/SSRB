@@ -12,6 +12,8 @@ public class TrashMob_Idle : StateMachineBehaviour
     bool onFloor = false;
     bool sweetspot = false;
     bool asAttacked = false;
+    bool asFriendDetected = false;
+    float rotateTime;
 
     public float distanceMin;
     public float distanceMax;
@@ -32,6 +34,20 @@ public class TrashMob_Idle : StateMachineBehaviour
         Move(animator);
         Attack(animator);
         ShootRayCast(animator);
+
+        if (asFriendDetected)
+        {
+            rotateTime += Time.deltaTime;
+            if (rotateTime <= 1)
+            {
+                agent.Move(animator.transform.right * 0.1f);
+            }
+            else
+            {
+                rotateTime = 0;
+                asFriendDetected = false;
+            }
+        }
     }
 
     void Move(Animator animator)
@@ -79,12 +95,12 @@ public class TrashMob_Idle : StateMachineBehaviour
     void ShootRayCast(Animator animator)
     {
         RaycastHit hit;
-        Debug.DrawRay(animator.transform.position, direction * direction.magnitude, Color.blue);
-        if (Physics.Raycast(animator.transform.position, direction.normalized, out hit, direction.magnitude))
+        Debug.DrawRay(animator.transform.position, - direction * direction.magnitude, Color.blue);
+        if (Physics.Raycast(animator.transform.position, -direction.normalized, out hit, direction.magnitude))
         {
             if (hit.transform.CompareTag("Swordman"))
             {
-                agent.Move(Vector3.left * 2);
+                asFriendDetected = true;
             }
         }
     }

@@ -24,7 +24,7 @@ public class Hitting : StateMachineBehaviour
    
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        
         if (attackNumber == 3)
         {
             Player.transform.position += animator.deltaPosition;
@@ -60,6 +60,11 @@ public class Hitting : StateMachineBehaviour
             }
             else animator.Play("HIt");
             animator.SetBool("wantToCombo", true);
+        }
+
+        if (!playerAttack.wantToHit)
+        {
+            animator.Play("Idle");
         }
     }
 

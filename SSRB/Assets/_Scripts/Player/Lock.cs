@@ -57,13 +57,9 @@ public class Lock : MonoBehaviour
         }
         if (ennemies.Count != 0 && isLocked)
         {
-            if (ennemies[index] == null)
+            if (index >= ennemies.Count)
             {
-                if (index >= ennemies.Count)
-                {
-                    index = 0;
-                }
-                else index++;
+                index = 0;
             }
             Target = ennemies[index];
             cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position + Vector3.up);
@@ -119,8 +115,8 @@ public class Lock : MonoBehaviour
     {
         return Input.GetAxisRaw("Strafe") * sideOffset;
     }
-    
-    void Sorting()
+
+    private void Sorting()
     {
         ennemies.Sort(SortByScreenPosition);
         ennemies.Reverse();

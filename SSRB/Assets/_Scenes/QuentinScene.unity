@@ -4332,6 +4332,16 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 1548098910}
+    - target: {fileID: 5120038390048887041, guid: 59cdf85215195fc4c972a82f166f1aaf,
+        type: 3}
+      propertyPath: followSpeed
+      value: 209.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120038390048887041, guid: 59cdf85215195fc4c972a82f166f1aaf,
+        type: 3}
+      propertyPath: autoAimSpeed
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59cdf85215195fc4c972a82f166f1aaf, type: 3}
 --- !u!1001 &7253992763398654610

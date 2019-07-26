@@ -8,15 +8,21 @@ public class RotateCamera : MonoBehaviour
 
     public float rotateSpeed;
     public float autoAimSpeed;
+    private GameObject player;
+    public float followSpeed;
+    public Vector3 offset;
 
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     
-    void Update()
+    void FixedUpdate()
     {
         Aim();
+
+        Vector3 nextPos = Vector3.Lerp(transform.position, player.transform.position + offset, followSpeed * Time.deltaTime);
+        transform.position = nextPos;
     }
 
     void Aim()

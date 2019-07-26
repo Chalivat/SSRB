@@ -14,11 +14,11 @@ public class Hitting : StateMachineBehaviour
         playerAttack = Player.GetComponent<PlayerAttack>();
 
         animator.gameObject.GetComponent<PlayerCanHit>().cannontHit();
-        
-            animator.SetBool("wantToCombo",false);
-        
-            playerAttack.attackNumber = attackNumber;
-        
+
+        animator.SetBool("wantToCombo", false);
+
+        playerAttack.attackNumber = attackNumber;
+        animator.ResetTrigger("Combo");
     }
 
    

@@ -46,6 +46,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetButtonDown("Hit"))
             {
+                Player.SetTrigger("Combo");
                 if (attackNumber == 0)
                 {
                    Player.SetInteger("AttackNumber",0);

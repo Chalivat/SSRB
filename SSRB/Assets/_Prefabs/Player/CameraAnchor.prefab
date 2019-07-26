@@ -242,6 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 100
   autoAimSpeed: 8
+  followSpeed: 60
+  offset: {x: 0, y: 2, z: 0}
 --- !u!1818360608 &5120038390048887070
 PositionConstraint:
   m_ObjectHideFlags: 0
@@ -249,7 +251,7 @@ PositionConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5120038390048887043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Weight: 1
   m_TranslationAtRest: {x: 0, y: 3, z: 0}
   m_TranslationOffset: {x: 0, y: 2, z: 0}

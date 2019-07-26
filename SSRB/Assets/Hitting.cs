@@ -33,12 +33,10 @@ public class Hitting : StateMachineBehaviour
         if (attackNumber == 1 && stateInfo.normalizedTime >= stateInfo.length && animator.GetBool("wantToCombo"))
         {
             animator.SetBool("wantToCombo", false);
-            Debug.Log("grejoghzerioghioezgh");
         }
 
         if (playerAttack.wantToHit)
         {
-            Debug.Log("ghrehgehrguherugheruhg" + Time.frameCount);
             animator.SetBool("wantToCombo", true);
             //animator.Play("Idle");
         }

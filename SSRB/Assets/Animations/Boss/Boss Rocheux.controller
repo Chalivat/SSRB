@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceMin: 7
-  distanceMax: 14
+  distanceMax: 16
   animations:
   - Attaque Gauche
   - Attaque Gauche Rapide

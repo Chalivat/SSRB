@@ -32,7 +32,7 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     {
         if (deflect.asBeenDeflected)
         {
-            animator.Play("Impact 0");
+            animator.Play("Impact");
             deflect.asBeenDeflected = false;
         }
     }

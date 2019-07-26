@@ -18,8 +18,10 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     public bool isBlocking = false;
     public bool asAttacked = false;
     DeflectImpact deflectImpact;
+    EnnemiEpee_CollisionDetector collisionDetector;
     NavMeshAgent agent;
-    
+    public float agentSpeed;
+
     GameObject player;
     Rigidbody rb;
     Vector3 direction;
@@ -32,6 +34,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     {
         animator.speed = 1;
         agent = animator.GetComponent<EnnemiEpee_CollisionDetector>().agent;
+        collisionDetector = animator.GetComponent<EnnemiEpee_CollisionDetector>();
         deflectImpact = animator.GetBehaviour<DeflectImpact>();
         deflectImpact.isImpacted = false;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -42,7 +45,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
         time = Random.Range(minTime, maxTime);
         isBlocking = true;
         agent.updateRotation = true;
-        agent.speed = 2.2f;
+        agent.speed = agentSpeed;
     }
 
 
@@ -50,7 +53,15 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     {
         ShootRaycast(animator);
         Move(animator);
-        Attack();
+
+        if (collisionDetector.isAgro)
+        {
+            AttackAgro();
+        }
+        else if (collisionDetector.isDefensive)
+        {
+            AttackDefense();
+        }
     }
 
     
@@ -119,7 +130,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
         }
     }
 
-    void Attack()
+    void AttackAgro()
     {
         if (sweetspot && !asAttacked)
         {
@@ -135,5 +146,10 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
         {
             time = Random.Range(minTime, maxTime);
         }
+    }
+
+    void AttackDefense()
+    {
+
     }
 }

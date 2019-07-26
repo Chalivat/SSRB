@@ -698,16 +698,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8eaf38057aebbb4fa645b023e84d136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 6
+  health: 30
+  poise: 10
+  poiseMin: 1
+  poiseMiddle: 5
   ejection: 20
   knockback: 5
   healthBar: {fileID: 4505834886970948171}
+  poiseBar: {fileID: 0}
+  initialpoiseRecoveryTime: 2
   agent: {fileID: 0}
   particles: {fileID: 7398912120909700800}
   animationsCac:
   - Kick
   - Slash
   swordCollision: {fileID: 701047658866101171}
+  isAgro: 0
+  isDefensive: 0
+  isVulnerable: 0
   sword: {fileID: 7841377715603439975}
 --- !u!1 &2568894366166139231
 GameObject:

@@ -111,7 +111,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             isAgro = true;
             isVulnerable = false;
             anim.SetBool("isDefensive", false);
-            anim.SetBool("isAfro", true);
+            anim.SetBool("isAgro", true);
             anim.SetBool("isVulnerable", false);
         }
         else if (poise <= poiseMiddle && poise >= poiseMin)
@@ -120,7 +120,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             isAgro = false;
             isVulnerable = false;
             anim.SetBool("isDefensive", true);
-            anim.SetBool("isAfro", false);
+            anim.SetBool("isAgro", false);
             anim.SetBool("isVulnerable", false);
         }
         else if(poise < poiseMin)
@@ -129,7 +129,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             isAgro = false;
             isVulnerable = true;
             anim.SetBool("isDefensive", false);
-            anim.SetBool("isAfro", false);
+            anim.SetBool("isAgro", false);
             anim.SetBool("isVulnerable", true);
         }
     }

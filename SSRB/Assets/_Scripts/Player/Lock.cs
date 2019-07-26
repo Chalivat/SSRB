@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,11 +24,11 @@ public class Lock : MonoBehaviour
         cam = Camera.main;
         cameraShake = cam.gameObject.GetComponent<CameraShake>();
         initialRot = cam.transform.localRotation;
-        
     }
     
     void Update()
     {
+
         cursor.gameObject.SetActive(isLocked);
         for (int i = 0; i < ennemies.Count; i++)
         {
@@ -56,6 +57,14 @@ public class Lock : MonoBehaviour
         }
         if (ennemies.Count != 0 && isLocked)
         {
+            if (ennemies[index] == null)
+            {
+                if (index >= ennemies.Count)
+                {
+                    index = 0;
+                }
+                else index++;
+            }
             Target = ennemies[index];
             cursor.transform.position = Camera.main.WorldToScreenPoint(Target.transform.position + Vector3.up);
             cam.gameObject.transform.localRotation = Quaternion.Lerp(cam.gameObject.transform.localRotation, Quaternion.Euler(-10, ChooseSide() * 100, 0), 0.01f * Time.deltaTime);
@@ -78,6 +87,7 @@ public class Lock : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0 && !lastInput)
         {
             lastInput = true;
+            Sorting();
 
             if (Input.GetAxisRaw("Horizontal") > 0) //up
             {
@@ -109,11 +119,18 @@ public class Lock : MonoBehaviour
     {
         return Input.GetAxisRaw("Strafe") * sideOffset;
     }
-
+    
     void Sorting()
     {
-
+        ennemies.Sort(SortByScreenPosition);
+        ennemies.Reverse();
+    }
+    int SortByScreenPosition(GameObject a, GameObject b)
+    {
+        float posA = cam.WorldToScreenPoint(a.transform.position).x;
+        float posB = cam.WorldToScreenPoint(b.transform.position).x;
+        return posA.CompareTo(posB);
     }
 
-    
+
 }

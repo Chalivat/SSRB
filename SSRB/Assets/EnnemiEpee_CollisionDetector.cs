@@ -147,7 +147,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
             direction = transform.position - player.transform.position;
             sword.GetComponent<BoxCollider>().enabled = false;
             agent.velocity = rb.velocity;
-            if (poise <= 0)
+            if (poise <= 0 && !isVulnerable)
             {
                 rb.AddForce(direction * knockback/2, ForceMode.Impulse);
                 anim.Play("Impact");
@@ -169,7 +169,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
                 anim.Play(animationsCac[Random.Range(0, animationsCac.Length)]);
             }
 
-            if (poise <= 0)
+            if (poise <= 0 && !isVulnerable)
             {
                 rb.AddForce(direction * knockback / 2, ForceMode.Impulse);
                 anim.Play("Impact");

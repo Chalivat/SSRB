@@ -12,6 +12,7 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
     Transform parent;
     GameObject player;
     public float attackSpeed;
+    EnnemiEpee_CollisionDetector detector;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -22,6 +23,7 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
         idle = animator.GetBehaviour<EnnemisEppee_V2>();
         agent.updateRotation = false;
         agent.speed = attackSpeed;
+        detector = animator.GetComponent<EnnemiEpee_CollisionDetector>();
     }
 
 
@@ -29,7 +31,7 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
     {
         if (deflect.asBeenDeflected)
         {
-            animator.Play("Impact");
+            detector.poise -= Random.Range(5, 8);
             deflect.asBeenDeflected = false;
         }
     }

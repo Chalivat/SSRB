@@ -28,7 +28,7 @@ public class DeflectImpact : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Debug.Log("PUTAIN DE MERDE");
-        detector.poise = 6;
+        detector.poise = 50;
     }
 
 

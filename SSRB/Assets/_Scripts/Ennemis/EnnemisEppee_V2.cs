@@ -43,7 +43,6 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
         foot = GameObject.FindGameObjectWithTag("Foot").GetComponent<BoxCollider>();
         foot.enabled = false;
         time = Random.Range(minTime, maxTime);
-        isBlocking = true;
         agent.updateRotation = true;
         agent.speed = agentSpeed;
     }
@@ -53,6 +52,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     {
         ShootRaycast(animator);
         Move(animator);
+        DeflectPlayer();
 
         if (collisionDetector.isAgro)
         {
@@ -151,5 +151,13 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
     void AttackDefense()
     {
 
+    }
+
+    void DeflectPlayer()
+    {
+        if (Input.GetButtonDown("Hit") && Random.Range(1,4) == 1)
+        {
+            anim.Play("Parry");
+        }
     }
 }

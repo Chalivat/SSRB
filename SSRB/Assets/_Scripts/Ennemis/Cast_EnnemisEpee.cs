@@ -11,10 +11,12 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     public int knockback;
     NavMeshAgent agent;
     public float attackSpeed;
+    EnnemiEpee_CollisionDetector detector;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<EnnemiEpee_CollisionDetector>().agent;
+        detector = animator.GetComponent<EnnemiEpee_CollisionDetector>();
         agent.updateRotation = false;
         deflect = animator.GetComponentInChildren<SwordCollision>();
         deflectImpact = animator.GetBehaviour<DeflectImpact>();
@@ -32,7 +34,7 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     {
         if (deflect.asBeenDeflected)
         {
-            animator.Play("Impact");
+            detector.poise -= Random.Range(5, 10);
             deflect.asBeenDeflected = false;
         }
     }

@@ -87,7 +87,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
 
     void Poise()
     {
-        poiseRecoveryTime -= Time.deltaTime;
+        /*poiseRecoveryTime -= Time.deltaTime;
 
         if(poiseRecoveryTime <= 0 && isAgro)
         {
@@ -102,7 +102,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         else if(poiseRecoveryTime <= 0 && isVulnerable)
         {
             poiseRecoveryTime = initialpoiseRecoveryTime;
-        }
+        }*/
 
 
         if(poise > poiseMiddle)
@@ -157,13 +157,14 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
                 rb.AddForce(direction * knockback, ForceMode.Impulse);
             }
             health -= 1;
-            poise -= 2;
+            poise -= Random.Range(1, 7); ;
         }
         else if (other.CompareTag("Sabre") && idle.isBlocking)
         {
             playerhealth.PlayerGetDeflected();
-            CounterRandom = Random.Range(1, 3);
+            CounterRandom = Random.Range(1, 4);
             poise -= 1;
+            
             if(CounterRandom == 2)
             {
                 anim.Play(animationsCac[Random.Range(0, animationsCac.Length)]);

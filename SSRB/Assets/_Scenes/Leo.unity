@@ -1061,6 +1061,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2084175262}
+    - target: {fileID: 1804992293, guid: 5e5e2ca8eca31584aa8a7cab9d072974, type: 3}
+      propertyPath: vie
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7253992764678313971, guid: 5e5e2ca8eca31584aa8a7cab9d072974,
         type: 3}
       propertyPath: m_Constraints

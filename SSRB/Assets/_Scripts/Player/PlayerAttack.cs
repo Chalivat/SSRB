@@ -103,34 +103,9 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonDown("Shield"))
         {
-            animShield.Play("ShieldCharge");
-            ShieldParticles.Play();
-            psMain.startColor = Color.yellow;
+            animShield.Play("shieldUp");
             canDeflect = true;
         }
-
-        if (Input.GetButton("Shield"))
-        {
-            chargingShield += Time.deltaTime;
-            if (chargingShield >= 1.2f && chargingShield < 1.3)
-            {
-                psMain.startColor = Color.cyan;
-                Instantiate(shieldCharged, ShieldParticles.transform.position, transform.rotation);
-            }
-        }
-        else ShieldParticles.Stop();
-
-        if (Input.GetButtonUp("Shield"))
-        {
-            animShield.Play("shieldUp");
-            if (chargingShield >= 1.2)
-            {
-                Instantiate(Tornado, transform.position, transform.rotation);
-            }
-
-            chargingShield = 0;
-        }
-
         if (canDeflect)
         {
             deflectTime += Time.deltaTime;

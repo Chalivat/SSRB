@@ -14,6 +14,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public float knockback;
     public Slider healthBar;
     public Slider poiseBar;
+    public float agentSpeed;
     public float initialpoiseRecoveryTime;
     float poiseRecoveryTime;
 
@@ -198,10 +199,12 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     public void isFollowingPlayer()
     {
         isFollowing = true;
+        agent.speed = agentSpeed;
     }
 
     public void isNotFollowing()
     {
         isFollowing = false;
+        agent.speed = 0;
     }
 }

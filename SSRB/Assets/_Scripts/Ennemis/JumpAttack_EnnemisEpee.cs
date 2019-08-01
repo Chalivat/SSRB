@@ -31,7 +31,7 @@ public class JumpAttack_EnnemisEpee : StateMachineBehaviour
     {
         if (deflect.asBeenDeflected)
         {
-            detector.poise -= Random.Range(5, 8);
+            detector.poise -= Random.Range(8, 12);
             deflect.asBeenDeflected = false;
         }
     }

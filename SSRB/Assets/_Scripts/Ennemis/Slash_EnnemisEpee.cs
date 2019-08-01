@@ -29,7 +29,7 @@ public class Slash_EnnemisEpee : StateMachineBehaviour
     {
         if (deflect.asBeenDeflected)
         {
-            detector.poise -= Random.Range(4, 6);
+            detector.poise -= Random.Range(6, 10);
             deflect.asBeenDeflected = false;
         }
     }

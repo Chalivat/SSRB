@@ -34,7 +34,7 @@ public class Cast_EnnemisEpee : StateMachineBehaviour
     {
         if (deflect.asBeenDeflected)
         {
-            detector.poise -= Random.Range(5, 10);
+            detector.poise -= Random.Range(8, 10);
             deflect.asBeenDeflected = false;
         }
     }

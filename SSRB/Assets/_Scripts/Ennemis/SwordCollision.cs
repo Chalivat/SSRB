@@ -35,6 +35,8 @@ public class SwordCollision : MonoBehaviour
     {
         if (other.CompareTag("Player") && PlayerAttack.canDeflect && !Block)
         {
+            Vector3 direction = transform.position - player.transform.position;
+            playerVie.GetComponent<Rigidbody>().AddForce(-direction * knockback, ForceMode.Impulse);
             playerVie.PlayerDeflected();
             asBeenDeflected = true;
             Block = true;

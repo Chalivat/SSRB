@@ -28,7 +28,7 @@ public class EnnemiEpee : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("anim");
         rb = GetComponent<Rigidbody>();
         speed = Random.Range(speedMin, speedMax);
     }

@@ -11,13 +11,14 @@ public class Dodge : MonoBehaviour
     private bool isDodging;
     private Rigidbody rb;
     private CharacterController controller;
-
     public RotateCamera rotateCamera;
+    private Collider collider;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
         rotateCamera = FindObjectOfType<RotateCamera>();
+        collider = GetComponent<Collider>();
     }
     
     void FixedUpdate()
@@ -30,6 +31,7 @@ public class Dodge : MonoBehaviour
         if (Input.GetButtonDown("Dodge"))
         {
             isDodging = true;
+            collider.enabled = false;
             controller.enabled = false;
             rotateCamera.autoAimSpeed = 2;
             CameraShake.FreezeTime(-3);
@@ -51,6 +53,7 @@ public class Dodge : MonoBehaviour
             {
                 time = 0;
                 isDodging = false;
+                collider.enabled = true;
                 controller.enabled = true;
                 rotateCamera.autoAimSpeed = 7;
             }

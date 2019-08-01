@@ -32,7 +32,7 @@ public class HealthComponent : MonoBehaviour
 
     public void PlayerGetDeflected()
     {
-        anim.Play("Knocked");
+        //anim.Play("Knocked");
         //CameraShake.ShakeCamera(0.1f, 0.1f);
     }
 

@@ -13,20 +13,20 @@ public class Projectile_Behavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerVie = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthComponent>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        playerVie = GameObject.FindGameObjectWithTag("anim").GetComponent<HealthComponent>();
+        player = GameObject.FindGameObjectWithTag("anim");
         transform.LookAt(player.transform.position);
         rb.AddForce(transform.forward * speed, ForceMode.Force);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !PlayerAttack.canDeflect)
+        if (other.CompareTag("anim") && !PlayerAttack.canDeflect)
         {
             playerVie.vie -= 1;
             Destroy(gameObject);
         }
-        else if(other.CompareTag("Player") && PlayerAttack.canDeflect)
+        else if(other.CompareTag("anim") && PlayerAttack.canDeflect)
         {
             rb.velocity = Vector3.zero;
             rb.AddForce(-transform.forward * speed, ForceMode.Force);

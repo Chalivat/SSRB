@@ -21,7 +21,7 @@ public class TrashMob_Collisions : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("anim");
         anim = GetComponent<Animator>();
         slider.maxValue = health;
         blade.enabled = false;

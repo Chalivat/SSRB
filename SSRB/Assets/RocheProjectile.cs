@@ -15,7 +15,7 @@ public class RocheProjectile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("anim");
         time = Random.Range(1, 4);
     }
     

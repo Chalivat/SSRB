@@ -7,7 +7,7 @@ public class PlayerCanHit : MonoBehaviour
     public BoxCollider swordCollider;
     public CharacterController controller;
     public TrailRenderer ps;
-
+    public bool canHitting;
     void Start()
     {
         ps.emitting = false;
@@ -17,6 +17,7 @@ public class PlayerCanHit : MonoBehaviour
     {
         swordCollider.enabled = true;
         ps.emitting = true;
+        canHitting = true;
     }
 
     public void cannontHit()
@@ -35,4 +36,6 @@ public class PlayerCanHit : MonoBehaviour
     {
         controller.enabled = false;
     }
+
+    
 }

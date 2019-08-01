@@ -25,7 +25,7 @@ public class TrashMob_Idle : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<TrashMob_Collisions>().agent;
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("anim");
         agent.speed = 4;
     }
 

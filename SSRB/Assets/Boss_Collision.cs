@@ -14,7 +14,7 @@ public class Boss_Collision : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("anim");
     }
     
     void Update()

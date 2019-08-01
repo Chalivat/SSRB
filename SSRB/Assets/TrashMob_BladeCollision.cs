@@ -12,8 +12,8 @@ public class TrashMob_BladeCollision : MonoBehaviour
 
     void Start()
     {
-        playerVie = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthComponent>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        playerVie = GameObject.FindGameObjectWithTag("anim").GetComponent<HealthComponent>();
+        player = GameObject.FindGameObjectWithTag("anim");
     }
     private void Update()
     {
@@ -26,12 +26,12 @@ public class TrashMob_BladeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && PlayerAttack.canDeflect)
+        if (other.CompareTag("anim") && PlayerAttack.canDeflect)
         {
             playerVie.PlayerDeflected();
             asBeenDeflected = true;
         }
-        else if (other.CompareTag("Player") && !PlayerAttack.canDeflect)
+        else if (other.CompareTag("anim") && !PlayerAttack.canDeflect)
         {
             Vector3 direction = transform.position - player.transform.position;
             playerVie.PlayerGetHit(Random.Range(1,3));

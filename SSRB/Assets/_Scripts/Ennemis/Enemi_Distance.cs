@@ -19,7 +19,7 @@ public class Enemi_Distance : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("anim");
         shootTime = Random.Range(initialTimeMin,initialTimeMax);
         rb = GetComponent<Rigidbody>();
     }

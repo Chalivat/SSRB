@@ -4911,6 +4911,7 @@ MonoBehaviour:
   swordCollider: {fileID: 7253992763353598280}
   controller: {fileID: 7253992764678313933}
   ps: {fileID: 4783333024330046558}
+  canHitting: 0
 --- !u!1 &7253992763345867574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5405,15 +5406,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c100a51c8540764fa6d8b419add7e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 273057730485623438}
+  anim: {fileID: 0}
   animSabre: {fileID: 7253992763353598284}
   animShield: {fileID: 7253992763989041150}
+  playerCanHit: {fileID: 4563578480400765631}
   ShieldParticles: {fileID: 891589325}
   Tornado: {fileID: 8966430905872128554, guid: 6ed416e467c48224194d99d4bc38cd6f, type: 3}
-  attackNumber: 0
+  attackNumber: -1
   wantToHit: 0
   MaxCoyoteHit: 1.5
   isHit: 0
+  canHit: 0
   index: 0
   maxDeflectTime: 0.2
   shieldCharged: {fileID: 7249658209862134871, guid: 4f8d1370a2aae5e4c895452f2ea96643,
@@ -5485,6 +5488,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bad9cbd02cbb5488cf372f5514dc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeTime: 8
+  dodgeForce: 10
+  rotateCamera: {fileID: 0}
 --- !u!1001 &2898822274646285550
 PrefabInstance:
   m_ObjectHideFlags: 0

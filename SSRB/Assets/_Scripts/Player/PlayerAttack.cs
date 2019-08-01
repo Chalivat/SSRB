@@ -5,10 +5,10 @@ using UnityEngine.Assertions.Comparers;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Animator Player;
+    public Animator anim;
     public Animator animSabre;
     public Animator animShield;
-
+    public PlayerCanHit playerCanHit;
     private float chargingShield;
     private float chargingHit;
     public ParticleSystem ShieldParticles;
@@ -30,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
         psMain = ShieldParticles.main;
         ShieldParticles.Stop();
         GameObject.FindGameObjectWithTag("Sabre").GetComponent<BoxCollider>().enabled = false;
+        attackNumber = 0;
+        canHit = true;
     }
 
     void Update()
@@ -37,29 +39,38 @@ public class PlayerAttack : MonoBehaviour
         hit();
         shieldUp();
         Debug.Log("attackNumber : " + attackNumber);
-
-        //Debug.Log("State : " + Sabre.GetComponent<BoxCollider>().enabled);
         hit();
     }
 
+    public bool canHit;
+    
     void hit()
         {
-            if (Input.GetButtonDown("Hit"))
+            if (Input.GetButtonDown("Hit") && canHit)
             {
-                Player.SetTrigger("Combo");
                 if (attackNumber == 0)
                 {
-                   Player.SetInteger("AttackNumber",0);
-                   Player.Play("Hit");
-                }   
-                else Player.SetInteger("AttackNumber",1);
+                    anim.SetTrigger("Combo");
+                    anim.SetBool("wantToCombo", false);
+            }
 
-                wantToHit = true;
+                else if (attackNumber == 1)
+                {
+                    anim.SetTrigger("HitLeft");
+                    anim.SetBool("wantToCombo", false);
+            }
+
+                else if (attackNumber == 2)
+                {
+                    anim.SetBool("wantToCombo",true);
+                    anim.SetTrigger("Combo");
+                }
+                
             }
 
             if (Input.GetAxisRaw("BigHit") >0)
             {
-                Player.Play("SpinHit");
+                anim.Play("SpinHit");
             }
 
         if (wantToHit)
@@ -69,8 +80,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 time = 0;
                 wantToHit = false;
-                Player.SetInteger("AttackNumber", 0);
-                
+                anim.SetInteger("AttackNumber", -1);
+                attackNumber = 0;
+                anim.ResetTrigger("Combo");
             }
         }
 

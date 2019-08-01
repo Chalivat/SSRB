@@ -10,7 +10,7 @@ public class FollowPlayer_Animation : StateMachineBehaviour
     
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("anim");
         agent = animator.GetComponent<EnnemiEpee_CollisionDetector>().agent;
     }
 

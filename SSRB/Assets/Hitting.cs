@@ -12,13 +12,10 @@ public class Hitting : StateMachineBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerAttack = Player.GetComponent<PlayerAttack>();
-
         animator.gameObject.GetComponent<PlayerCanHit>().cannontHit();
-
-        animator.SetBool("wantToCombo", false);
-
         playerAttack.attackNumber = attackNumber;
         animator.ResetTrigger("Combo");
+        
     }
 
    
@@ -30,39 +27,21 @@ public class Hitting : StateMachineBehaviour
             Player.transform.position += animator.deltaPosition;
         }
 
-        if (attackNumber == 1 && stateInfo.normalizedTime >= stateInfo.length && animator.GetBool("wantToCombo"))
+        if (stateInfo.normalizedTime >= .2f)
         {
-            animator.SetBool("wantToCombo", false);
+            playerAttack.canHit = true;
         }
-
-        if (playerAttack.wantToHit)
-        {
-            animator.SetBool("wantToCombo", true);
-            //animator.Play("Idle");
-        }
-        else animator.SetBool("wantToCombo", false);
     }
 
     
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.gameObject.GetComponent<PlayerCanHit>().canMove();
-        playerAttack.attackNumber = 0;
         animator.gameObject.GetComponent<PlayerCanHit>().cannontHit();
-        
-        if (playerAttack.wantToHit)
-        {
-            if (this.attackNumber == 0)
-            {
-                animator.Play("HitLeft");
-            }
-            else animator.Play("HIt");
-            animator.SetBool("wantToCombo", true);
-        }
 
-        if (!playerAttack.wantToHit)
+        if (attackNumber == 2)
         {
-            animator.Play("Idle");
+            playerAttack.attackNumber = 0;
         }
     }
 

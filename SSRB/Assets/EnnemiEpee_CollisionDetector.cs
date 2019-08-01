@@ -51,6 +51,7 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
         healthBar.maxValue = health;
         poiseBar.maxValue = poise;
         poiseRecoveryTime = initialpoiseRecoveryTime;
+        agent.updatePosition = true;
     }
     
     void Update()
@@ -200,11 +201,13 @@ public class EnnemiEpee_CollisionDetector : MonoBehaviour
     {
         isFollowing = true;
         agent.speed = agentSpeed;
+        agent.updatePosition = true;
     }
 
     public void isNotFollowing()
     {
         isFollowing = false;
         agent.speed = 0;
+        agent.updatePosition = false;
     }
 }

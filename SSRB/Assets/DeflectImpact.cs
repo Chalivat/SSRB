@@ -16,12 +16,13 @@ public class DeflectImpact : StateMachineBehaviour
         idle.isBlocking = false;
         detector.isAgro = true;
         detector.isVulnerable = false;
+        detector.agent.updatePosition = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        
     }
 
 
@@ -29,6 +30,7 @@ public class DeflectImpact : StateMachineBehaviour
     {
         Debug.Log("PUTAIN DE MERDE");
         detector.poise = 50;
+        detector.agent.updatePosition = true;
     }
 
 

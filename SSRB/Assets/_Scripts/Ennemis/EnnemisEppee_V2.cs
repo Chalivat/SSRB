@@ -44,6 +44,7 @@ public class EnnemisEppee_V2 : StateMachineBehaviour
         foot.enabled = false;
         time = Random.Range(minTime, maxTime);
         agent.updateRotation = true;
+        agent.updatePosition = true;
         agent.speed = agentSpeed;
     }
 
